@@ -1,0 +1,195 @@
+<html><head><base href="https://fotospromax.com/caracteristicas"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Características</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em 0;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+        color: #ffab40;
+    }
+    main {
+        padding: 4em 0;
+    }
+    h1 {
+        text-align: center;
+        color: #1a237e;
+        margin-bottom: 1.5em;
+    }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2em;
+    }
+    .feature {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 2em;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    .feature:hover {
+        transform: translateY(-10px);
+    }
+    .feature-icon {
+        font-size: 3em;
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    .feature h2 {
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    .feature p {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 4em;
+    }
+    @media (max-width: 768px) {
+        .features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Fotos Pro Max</div>
+                <div class="nav-links">
+                    <a href="/">Inicio</a>
+                    <a href="/caracteristicas">Características</a>
+                    <a href="/precios">Precios</a>
+                    <a href="/contacto">Contacto</a>
+                    <a href="/login">Iniciar Sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Características de Fotos Pro Max</h1>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <h2>Almacenamiento en la Nube</h2>
+                <p>Guarda todas tus fotos de forma segura en nuestra nube, accesible desde cualquier dispositivo en cualquier momento.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-edit"></i></div>
+                <h2>Edición Avanzada</h2>
+                <p>Utiliza nuestras herramientas de edición profesional para perfeccionar tus fotos con solo unos clics.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-share-alt"></i></div>
+                <h2>Compartir Fácilmente</h2>
+                <p>Comparte tus fotos en redes sociales o crea álbumes privados para compartir con amigos y familiares.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h2>Aplicación Móvil</h2>
+                <p>Accede y edita tus fotos sobre la marcha con nuestra aplicación móvil intuitiva para iOS y Android.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <h2>Seguridad Avanzada</h2>
+                <p>Protege tus recuerdos con encriptación de extremo a extremo y autenticación de dos factores.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-magic"></i></div>
+                <h2>IA de Mejora de Imágenes</h2>
+                <p>Mejora automáticamente tus fotos con nuestra tecnología de inteligencia artificial de última generación.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animación suave para el scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efecto de resaltado al pasar el mouse por encima de las características
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseover', function() {
+                this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            });
+            feature.addEventListener('mouseout', function() {
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Animación de entrada para las características
+        const features = document.querySelectorAll('.feature');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {threshold: 0.1});
+
+        features.forEach(feature => {
+            feature.style.opacity = 0;
+            feature.style.transform = 'translateY(20px)';
+            feature.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(feature);
+        });
+    </script>
+</body>
+</html>

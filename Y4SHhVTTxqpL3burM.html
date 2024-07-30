@@ -1,0 +1,358 @@
+<html><head><base href="https://fotospromax.com/perfil">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Mi Perfil</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .profile-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .profile-header {
+        background-color: #3f51b5;
+        color: white;
+        padding: 2em;
+        display: flex;
+        align-items: center;
+    }
+    .profile-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid white;
+        margin-right: 2em;
+    }
+    .profile-info h1 {
+        margin: 0;
+        font-size: 2em;
+    }
+    .profile-info p {
+        margin: 0.5em 0;
+        font-size: 1.1em;
+    }
+    .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+        background-color: #e8eaf6;
+    }
+    .stat-item {
+        text-align: center;
+    }
+    .stat-value {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #3f51b5;
+    }
+    .stat-label {
+        font-size: 0.9em;
+        color: #666;
+    }
+    .profile-content {
+        padding: 2em;
+    }
+    .content-section {
+        margin-bottom: 2em;
+    }
+    .content-section h2 {
+        border-bottom: 2px solid #3f51b5;
+        padding-bottom: 0.5em;
+        margin-bottom: 1em;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover {
+        transform: scale(1.05);
+    }
+    .photo-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .edit-profile-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 1em;
+    }
+    .edit-profile-btn:hover {
+        background-color: #45a049;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 500px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-form label {
+        display: block;
+        margin-top: 10px;
+    }
+    .modal-form input[type="text"],
+    .modal-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .modal-form button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .modal-form button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="https://picsum.photos/200?random=1" alt="Foto de perfil" class="profile-avatar">
+                    <div class="profile-info">
+                        <h1>Ana García</h1>
+                        <p>Fotógrafa aficionada | Amante de la naturaleza</p>
+                        <p>Madrid, España</p>
+                        <button class="edit-profile-btn" id="editProfileBtn">Editar Perfil</button>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">1,234</div>
+                        <div class="stat-label">Fotos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">56</div>
+                        <div class="stat-label">Álbumes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5,678</div>
+                        <div class="stat-label">Seguidores</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">789</div>
+                        <div class="stat-label">Siguiendo</div>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <section class="content-section">
+                        <h2>Mis Últimas Fotos</h2>
+                        <div class="photo-grid" id="photoGrid">
+                            <!-- Photos will be dynamically added here -->
+                        </div>
+                    </section>
+                    <section class="content-section">
+                        <h2>Sobre Mí</h2>
+                        <p id="bioText">Hola, soy Ana García, una apasionada fotógrafa aficionada con un amor especial por capturar la belleza de la naturaleza. Vivo en Madrid, pero siempre estoy buscando nuevas aventuras y paisajes impresionantes para fotografiar. Me encanta compartir mi visión del mundo a través de mis fotos y conectar con otros entusiastas de la fotografía.</p>
+                        <p>Cuando no estoy detrás de la cámara, me puedes encontrar explorando nuevos senderos, leyendo sobre técnicas fotográficas o experimentando con edición de imágenes. ¡Siempre estoy abierta a colaboraciones y a aprender de otros fotógrafos!</p>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Modal for editing profile -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Perfil</h2>
+            <form class="modal-form" id="editProfileForm">
+                <label for="editName">Nombre:</label>
+                <input type="text" id="editName" name="editName" value="Ana García" required>
+                
+                <label for="editBio">Biografía:</label>
+                <textarea id="editBio" name="editBio" rows="4"></textarea>
+                
+                <label for="editLocation">Ubicación:</label>
+                <input type="text" id="editLocation" name="editLocation" value="Madrid, España">
+                
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const photoGrid = document.getElementById('photoGrid');
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const modal = document.getElementById('editProfileModal');
+        const closeModalBtn = document.getElementsByClassName('close')[0];
+        const editProfileForm = document.getElementById('editProfileForm');
+        const bioText = document.getElementById('bioText');
+
+        // Function to create photo items
+        function createPhotoItem(photoUrl) {
+            const photoItem = document.createElement('div');
+            photoItem.className = 'photo-item';
+            photoItem.innerHTML = `<img src="${photoUrl}" alt="Foto de usuario">`;
+            return photoItem;
+        }
+
+        // Populate photo grid
+        for (let i = 0; i < 6; i++) {
+            photoGrid.appendChild(createPhotoItem(`https://picsum.photos/300/300?random=${i+2}`));
+        }
+
+        // Modal functionality
+        editProfileBtn.onclick = function() {
+            modal.style.display = "block";
+            document.getElementById('editBio').value = bioText.textContent;
+        }
+
+        closeModalBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        editProfileForm.onsubmit = function(e) {
+            e.preventDefault();
+            const newName = document.getElementById('editName').value;
+            const newBio = document.getElementById('editBio').value;
+            const newLocation = document.getElementById('editLocation').value;
+
+            // Update profile information
+            document.querySelector('.profile-info h1').textContent = newName;
+            document.querySelector('.profile-info p:last-of-type').textContent = newLocation;
+            bioText.textContent = newBio;
+
+            modal.style.display = "none";
+        }
+
+        // Simulate loading more photos when scrolling
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+                for (let i = 0; i < 3; i++) {
+                    photoGrid.appendChild(createPhotoItem(`https://picsum.photos/300/300?random=${Math.random()}`));
+                }
+            }
+        });
+    </script>
+</body>
+</html>

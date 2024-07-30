@@ -1,0 +1,266 @@
+<html><head><base href="https://fotospromax.com/precios">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planes y Precios - Fotos Pro Max</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .pricing-header {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+    .pricing-header h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+    }
+    .pricing-plans {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+    .plan {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 2em;
+        width: 300px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    .plan:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    .plan h2 {
+        color: #1a237e;
+        font-size: 1.8em;
+        margin-bottom: 0.5em;
+    }
+    .plan .price {
+        font-size: 2.5em;
+        color: #3f51b5;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    .plan ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em 0;
+    }
+    .plan ul li {
+        margin-bottom: 0.5em;
+    }
+    .plan .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    .plan .cta-button:hover {
+        background-color: #ffd180;
+        transform: scale(1.05);
+    }
+    .best-value {
+        position: relative;
+        overflow: hidden;
+    }
+    .best-value::before {
+        content: "Mejor Valor";
+        position: absolute;
+        top: 20px;
+        right: -35px;
+        transform: rotate(45deg);
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 5px 40px;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="pricing-header">
+            <h1>Nuestros Planes y Precios</h1>
+            <p>Elige el plan que mejor se adapte a tus necesidades fotográficas</p>
+        </div>
+
+        <div class="pricing-plans">
+            <div class="plan">
+                <h2>Plan Básico</h2>
+                <div class="price">Gratis</div>
+                <p>Para usuarios ocasionales</p>
+                <ul>
+                    <li>5 GB de almacenamiento</li>
+                    <li>Compartir hasta 100 fotos</li>
+                    <li>Edición básica de fotos</li>
+                    <li>Soporte por correo electrónico</li>
+                </ul>
+                <a href="/registro?plan=basico" class="cta-button">Comenzar Gratis</a>
+            </div>
+
+            <div class="plan best-value pulse">
+                <h2>Plan Pro</h2>
+                <div class="price">$9.99/mes</div>
+                <p>Para fotógrafos entusiastas</p>
+                <ul>
+                    <li>500 GB de almacenamiento</li>
+                    <li>Compartir fotos ilimitadas</li>
+                    <li>Edición avanzada de fotos</li>
+                    <li>Organización con IA</li>
+                    <li>Soporte prioritario</li>
+                </ul>
+                <a href="/registro?plan=pro" class="cta-button">Elegir Plan Pro</a>
+            </div>
+
+            <div class="plan">
+                <h2>Plan Ilimitado</h2>
+                <div class="price">$19.99/mes</div>
+                <p>Para profesionales de la fotografía</p>
+                <ul>
+                    <li>Almacenamiento ilimitado</li>
+                    <li>Todas las características del Plan Pro</li>
+                    <li>Herramientas de marca personal</li>
+                    <li>Integración con Adobe Creative Cloud</li>
+                    <li>Soporte telefónico 24/7</li>
+                </ul>
+                <a href="/registro?plan=ilimitado" class="cta-button">Elegir Plan Ilimitado</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button, .cta-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animación de planes al hacer scroll
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function animatePlans() {
+            const plans = document.querySelectorAll('.plan');
+            plans.forEach(plan => {
+                if (isElementInViewport(plan)) {
+                    plan.style.opacity = '1';
+                    plan.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animatePlans);
+        window.addEventListener('load', animatePlans);
+
+        // Estilos iniciales para la animación de planes
+        const plans = document.querySelectorAll('.plan');
+        plans.forEach(plan => {
+            plan.style.opacity = '0';
+            plan.style.transform = 'translateY(50px)';
+            plan.style.transition = 'opacity 0.5s, transform 0.5s';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<html><head><base href="https://fotospromax.com/galeria">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Galería</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .gallery-section {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2em;
+        margin-top: 2em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .gallery-section h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1em;
+    }
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+    .gallery-item .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+    }
+    .gallery-item:hover .overlay {
+        height: 100%;
+    }
+    .gallery-item .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+    .filters {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+        flex-wrap: wrap;
+    }
+    .filter-btn {
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+        background-color: #1a237e;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @media (max-width: 768px) {
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="gallery-section">
+            <h1>Galería de Fotos</h1>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="naturaleza">Naturaleza</button>
+                <button class="filter-btn" data-filter="arquitectura">Arquitectura</button>
+                <button class="filter-btn" data-filter="retratos">Retratos</button>
+                <button class="filter-btn" data-filter="urbano">Urbano</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="naturaleza">
+                    <img src="https://source.unsplash.com/random/400x300?nature" alt="Paisaje natural con montañas y lago" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Serenidad Natural</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="arquitectura">
+                    <img src="https://source.unsplash.com/random/400x300?architecture" alt="Edificio moderno con diseño geométrico" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Geometría Urbana</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="retratos">
+                    <img src="https://source.unsplash.com/random/400x300?portrait" alt="Retrato de una mujer joven sonriendo" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Sonrisa Cautivadora</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="urbano">
+                    <img src="https://source.unsplash.com/random/400x300?urban" alt="Escena callejera de una ciudad bulliciosa" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Ritmo Urbano</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="naturaleza">
+                    <img src="https://source.unsplash.com/random/400x300?landscape" alt="Puesta de sol sobre un campo de flores" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Atardecer Floral</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="arquitectura">
+                    <img src="https://source.unsplash.com/random/400x300?building" alt="Interior de un edificio histórico con detalles ornamentados" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Legado Arquitectónico</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="retratos">
+                    <img src="https://source.unsplash.com/random/400x300?person" alt="Retrato en blanco y negro de un anciano" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Sabiduría en Blanco y Negro</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="urbano">
+                    <img src="https://source.unsplash.com/random/400x300?street" alt="Callejón colorido con arte callejero" width="400" height="300">
+                    <div class="overlay">
+                        <div class="text">Expresión Callejera</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button, .filter-btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Filtrado de galería
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animación de imágenes de galería
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            });
+            item.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

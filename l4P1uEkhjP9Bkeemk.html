@@ -1,0 +1,208 @@
+<html><head><base href="https://fotospromax.com/populares">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Fotos Populares</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    h1 {
+        color: #1a237e;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .photo-item {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover {
+        transform: translateY(-5px);
+    }
+    .photo-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    .photo-stats {
+        display: flex;
+        justify-content: space-between;
+        color: #888;
+        font-size: 0.9em;
+    }
+    .filter-options {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .filter-btn {
+        background-color: #1a237e;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+        background-color: #ffab40;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Fotos Populares</h1>
+        
+        <div class="filter-options">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="week">Esta Semana</button>
+            <button class="filter-btn" data-filter="month">Este Mes</button>
+            <button class="filter-btn" data-filter="year">Este Año</button>
+        </div>
+        
+        <div class="photo-grid" id="photoGrid">
+            <!-- Las fotos se cargarán dinámicamente aquí -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const photoData = [
+            { id: 1, title: "Atardecer en la playa", author: "María García", likes: 1500, views: 5000, img: "https://source.unsplash.com/random/400x300/?sunset,beach" },
+            { id: 2, title: "Montañas nevadas", author: "Juan Pérez", likes: 1200, views: 4500, img: "https://source.unsplash.com/random/400x300/?mountains,snow" },
+            { id: 3, title: "Ciudad nocturna", author: "Ana Martínez", likes: 1800, views: 6000, img: "https://source.unsplash.com/random/400x300/?city,night" },
+            { id: 4, title: "Retrato en blanco y negro", author: "Carlos Rodríguez", likes: 2000, views: 7000, img: "https://source.unsplash.com/random/400x300/?portrait,blackandwhite" },
+            { id: 5, title: "Flores silvestres", author: "Laura Sánchez", likes: 1300, views: 4800, img: "https://source.unsplash.com/random/400x300/?wildflowers" },
+            { id: 6, title: "Arquitectura moderna", author: "Diego López", likes: 1600, views: 5500, img: "https://source.unsplash.com/random/400x300/?architecture,modern" },
+            { id: 7, title: "Vida marina", author: "Sofia Herrera", likes: 1900, views: 6500, img: "https://source.unsplash.com/random/400x300/?underwater,sealife" },
+            { id: 8, title: "Bosque otoñal", author: "Pablo Gómez", likes: 1400, views: 5200, img: "https://source.unsplash.com/random/400x300/?forest,autumn" },
+        ];
+
+        function renderPhotos(photos) {
+            const photoGrid = document.getElementById('photoGrid');
+            photoGrid.innerHTML = '';
+            photos.forEach(photo => {
+                const photoElement = document.createElement('div');
+                photoElement.className = 'photo-item';
+                photoElement.innerHTML = `
+                    <img src="${photo.img}" alt="${photo.title}">
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                        <div class="photo-stats">
+                            <span>❤️ ${photo.likes}</span>
+                            <span>👁️ ${photo.views}</span>
+                        </div>
+                    </div>
+                `;
+                photoGrid.appendChild(photoElement);
+            });
+        }
+
+        renderPhotos(photoData);
+
+        // Simulación de filtrado
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                let filteredPhotos = photoData;
+                if (filter !== 'all') {
+                    // Aquí simularíamos el filtrado real. Por ahora, solo mezclamos y recortamos el array
+                    filteredPhotos = photoData.sort(() => 0.5 - Math.random()).slice(0, 6);
+                }
+                renderPhotos(filteredPhotos);
+            });
+        });
+    </script>
+</body>
+</html>

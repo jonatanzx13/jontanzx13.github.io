@@ -1,0 +1,240 @@
+<html><head><base href="https://fotospromax.com/galeria">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Galería</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+    }
+    .photo-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .like-button, .comment-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2em;
+        color: #1a237e;
+        transition: color 0.3s ease;
+    }
+    .like-button:hover, .comment-button:hover {
+        color: #ffab40;
+    }
+    .rating {
+        color: #ffd700;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+    .filters {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .filter-button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: #283593;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .filter-button:hover {
+        background-color: #1a237e;
+    }
+    .filter-button.active {
+        background-color: #ffab40;
+        color: #1a237e;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <button class="filter-button active" data-filter="all">Todas</button>
+            <button class="filter-button" data-filter="paisajes">Paisajes</button>
+            <button class="filter-button" data-filter="retratos">Retratos</button>
+            <button class="filter-button" data-filter="naturaleza">Naturaleza</button>
+            <button class="filter-button" data-filter="arquitectura">Arquitectura</button>
+        </div>
+
+        <div class="gallery">
+            <!-- Las fotos se generarán dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Datos de ejemplo para las fotos
+        const photos = [
+            { id: 1, title: "Atardecer en la playa", author: "Marina López", likes: 120, comments: 15, rating: 4.5, category: "paisajes" },
+            { id: 2, title: "Montañas nevadas", author: "Carlos Ruiz", likes: 95, comments: 8, rating: 4.8, category: "paisajes" },
+            { id: 3, title: "Retrato en blanco y negro", author: "Ana García", likes: 78, comments: 6, rating: 4.2, category: "retratos" },
+            { id: 4, title: "Bosque otoñal", author: "Pedro Sánchez", likes: 110, comments: 12, rating: 4.7, category: "naturaleza" },
+            { id: 5, title: "Edificio moderno", author: "Laura Martínez", likes: 85, comments: 9, rating: 4.4, category: "arquitectura" },
+            { id: 6, title: "León en la sabana", author: "Javier Fernández", likes: 130, comments: 18, rating: 4.6, category: "naturaleza" },
+            { id: 7, title: "Puente Golden Gate", author: "Isabel Gómez", likes: 105, comments: 11, rating: 4.3, category: "arquitectura" },
+            { id: 8, title: "Retrato de anciano", author: "Miguel Ángel Pérez", likes: 92, comments: 7, rating: 4.5, category: "retratos" }
+        ];
+
+        function createPhotoCards() {
+            const gallery = document.querySelector('.gallery');
+            gallery.innerHTML = ''; // Limpiar la galería
+
+            photos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.classList.add('photo-card');
+                photoCard.dataset.category = photo.category;
+                photoCard.innerHTML = `
+                    <img src="https://picsum.photos/id/${photo.id + 100}/300/200" alt="${photo.title}">
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                        <div class="photo-actions">
+                            <button class="like-button" title="Me gusta">❤ ${photo.likes}</button>
+                            <button class="comment-button" title="Comentarios">💬 ${photo.comments}</button>
+                            <span class="rating">⭐ ${photo.rating.toFixed(1)}</span>
+                        </div>
+                    </div>
+                `;
+                gallery.appendChild(photoCard);
+            });
+        }
+
+        // Filtrado de fotos
+        const filterButtons = document.querySelectorAll('.filter-button');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                filterPhotos(filter);
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+
+        function filterPhotos(category) {
+            const photoCards = document.querySelectorAll('.photo-card');
+            photoCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Inicializar la galería
+        createPhotoCards();
+
+        // Simulación de likes y comentarios
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('like-button')) {
+                const currentLikes = parseInt(e.target.textContent.split(' ')[1]);
+                e.target.textContent = `❤ ${currentLikes + 1}`;
+            } else if (e.target.classList.contains('comment-button')) {
+                alert('Función de comentarios en desarrollo');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<html><head><base href="https://fotospromax.com/acerca">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acerca de Fotos Pro Max</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .about-section {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 3em;
+        margin: 2em auto;
+        max-width: 800px;
+    }
+    .about-section h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+    .about-section p {
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+    .team-section {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 2em;
+    }
+    .team-member {
+        text-align: center;
+        margin: 1em;
+        transition: all 0.3s ease;
+    }
+    .team-member:hover {
+        transform: translateY(-10px);
+    }
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #3f51b5;
+        transition: all 0.3s ease;
+    }
+    .team-member:hover img {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .team-member h3 {
+        margin: 0.5em 0;
+        color: #1a237e;
+    }
+    .team-member p {
+        font-style: italic;
+        color: #666;
+    }
+    .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 2em auto;
+    }
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #3f51b5;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+    }
+    .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+    }
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: white;
+        border: 4px solid #FF9F55;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    .left {
+        left: 0;
+    }
+    .right {
+        left: 50%;
+    }
+    .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid #3f51b5;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #3f51b5;
+    }
+    .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid #3f51b5;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #3f51b5 transparent transparent;
+    }
+    .right::after {
+        left: -16px;
+    }
+    .timeline-content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .timeline-content:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .fade-in {
+        animation: fadeIn 1s ease-in;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="about-section fade-in">
+            <h1>Nuestra Historia</h1>
+            <p>Fotos Pro Max nació en 2015 con una visión clara: hacer que compartir y almacenar fotos sea fácil, seguro y accesible para todos. Fundada por un grupo de entusiastas de la fotografía y expertos en tecnología, nuestra plataforma ha crecido hasta convertirse en un referente en el mundo de la fotografía digital.</p>
+            <p>Nos enorgullece ofrecer una combinación única de tecnología de vanguardia y una interfaz intuitiva que permite a fotógrafos de todos los niveles mostrar y proteger sus recuerdos más preciados.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h2>2015</h2>
+                        <p>Fundación de Fotos Pro Max</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h2>2017</h2>
+                        <p>Lanzamiento de la app móvil</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h2>2019</h2>
+                        <p>Alcanzamos 1 millón de usuarios</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h2>2021</h2>
+                        <p>Implementación de IA para organización de fotos</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h2>2023</h2>
+                        <p>Lanzamiento del plan gratuito de por vida</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Nuestro Equipo</h2>
+            <div class="team-section">
+                <div class="team-member">
+                    <img src="https://picsum.photos/id/1062/150/150" alt="Foto de Ana García, mujer sonriente con cabello oscuro y gafas">
+                    <h3>Ana García</h3>
+                    <p>Fundadora y CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://picsum.photos/id/1074/150/150" alt="Foto de Carlos Rodríguez, hombre de mediana edad con barba corta">
+                    <h3>Carlos Rodríguez</h3>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://picsum.photos/id/1025/150/150" alt="Foto de Elena Martínez, mujer joven con cabello rubio y expresión alegre">
+                    <h3>Elena Martínez</h3>
+                    <p>Diseñadora UX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animación de la línea de tiempo
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                if (isElementInViewport(item)) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateTimeline);
+        window.addEventListener('load', animateTimeline);
+
+        // Estilos iniciales para la animación de la línea de tiempo
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(50px)';
+            item.style.transition = 'opacity 0.5s, transform 0.5s';
+        });
+
+        // Animación de entrada para los miembros del equipo
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach((member, index) => {
+            member.style.opacity = '0';
+            member.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                member.style.transition = 'opacity 0.5s, transform 0.5s';
+                member.style.opacity = '1';
+                member.style.transform = 'translateY(0)';
+            }, 300 * index);
+        });
+    </script>
+</body>
+</html>

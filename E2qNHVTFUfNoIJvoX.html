@@ -1,0 +1,228 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Inicio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/1200/400');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 4em 2em;
+        border-radius: 10px;
+        margin-bottom: 2em;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
+    }
+    .cta-button {
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 0.8em 1.5em;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .features {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 2em;
+    }
+    .feature-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        margin: 1em;
+        flex: 1;
+        min-width: 250px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+    .feature-icon {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+        color: #3f51b5;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1em;
+        margin-bottom: 2em;
+    }
+    .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+        transform: scale(1.05);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <h1>Captura y comparte tus momentos</h1>
+                <p>Descubre un mundo de posibilidades con Fotos Pro Max</p>
+                <a href="/registro" class="cta-button">Comienza ahora</a>
+            </section>
+            <section class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h2>Almacenamiento ilimitado</h2>
+                    <p>Guarda todas tus fotos en alta calidad sin preocuparte por el espacio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h2>Edición avanzada</h2>
+                    <p>Herramientas de edición profesionales al alcance de tu mano.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h2>Privacidad y seguridad</h2>
+                    <p>Tus fotos están seguras con nuestra encriptación de última generación.</p>
+                </div>
+            </section>
+            <section class="gallery">
+                <img src="https://picsum.photos/300/200?random=1" alt="Paisaje montañoso">
+                <img src="https://picsum.photos/300/200?random=2" alt="Retrato urbano">
+                <img src="https://picsum.photos/300/200?random=3" alt="Naturaleza salvaje">
+                <img src="https://picsum.photos/300/200?random=4" alt="Arquitectura moderna">
+                <img src="https://picsum.photos/300/200?random=5" alt="Vida marina">
+                <img src="https://picsum.photos/300/200?random=6" alt="Fotografía de eventos">
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animación suave para el scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Lazy loading para las imágenes
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+        // Efecto parallax para el hero
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            let scrollPosition = window.pageYOffset;
+            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<html><head><base href="/dashboard/buscar/dashboard/albums"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Mis Álbumes</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a73e8;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    nav {
+        display: flex;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+    nav a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    h1 {
+        color: #1a73e8;
+        margin-bottom: 1em;
+    }
+    .albums-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2em;
+    }
+    .album-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .album-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .album-cover {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .album-info {
+        padding: 1em;
+    }
+    .album-title {
+        margin: 0;
+        font-size: 1.2em;
+        color: #1a73e8;
+    }
+    .album-details {
+        margin: 0.5em 0 0;
+        font-size: 0.9em;
+        color: #666;
+    }
+    .create-album {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+        margin-bottom: 2em;
+    }
+    .create-album:hover {
+        background-color: #185abc;
+    }
+    footer {
+        background-color: #1a73e8;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: auto;
+    }
+    #createAlbumModal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-content form {
+        display: flex;
+        flex-direction: column;
+    }
+    .modal-content input,
+    .modal-content textarea {
+        margin-bottom: 1em;
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .modal-content button {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 0.5em;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <a href="/dashboard">Panel</a>
+                <a href="/dashboard/buscar">Buscar</a>
+                <a href="/dashboard/perfil">Mi Perfil</a>
+            </nav>
+        </header>
+        <main>
+            <h1>Mis Álbumes</h1>
+            <button class="create-album" id="createAlbumBtn">Crear Nuevo Álbum</button>
+            <div class="albums-grid" id="albumsGrid">
+                <!-- Los álbumes se generarán dinámicamente aquí -->
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <div id="createAlbumModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Crear Nuevo Álbum</h2>
+            <form id="createAlbumForm">
+                <input type="text" id="albumName" placeholder="Nombre del álbum" required>
+                <textarea id="albumDescription" placeholder="Descripción del álbum"></textarea>
+                <button type="submit">Crear Álbum</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const albumsData = [
+            { id: 1, title: "Vacaciones 2023", cover: "https://picsum.photos/id/100/300/200", count: 45 },
+            { id: 2, title: "Familia", cover: "https://picsum.photos/id/101/300/200", count: 128 },
+            { id: 3, title: "Mascotas", cover: "https://picsum.photos/id/102/300/200", count: 67 },
+            { id: 4, title: "Viajes de Trabajo", cover: "https://picsum.photos/id/103/300/200", count: 23 },
+            { id: 5, title: "Naturaleza", cover: "https://picsum.photos/id/104/300/200", count: 89 },
+            { id: 6, title: "Eventos", cover: "https://picsum.photos/id/106/300/200", count: 56 }
+        ];
+
+        const albumsGrid = document.getElementById('albumsGrid');
+
+        function renderAlbums() {
+            albumsGrid.innerHTML = '';
+            albumsData.forEach(album => {
+                const albumCard = document.createElement('div');
+                albumCard.className = 'album-card';
+                albumCard.innerHTML = `
+                    <img src="${album.cover}" alt="${album.title}" class="album-cover">
+                    <div class="album-info">
+                        <h2 class="album-title">${album.title}</h2>
+                        <p class="album-details">${album.count} fotos</p>
+                    </div>
+                `;
+                albumsGrid.appendChild(albumCard);
+            });
+        }
+
+        renderAlbums();
+
+        // Modal functionality
+        const modal = document.getElementById("createAlbumModal");
+        const btn = document.getElementById("createAlbumBtn");
+        const span = document.getElementsByClassName("close")[0];
+        const form = document.getElementById("createAlbumForm");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            const albumName = document.getElementById("albumName").value;
+            const albumDescription = document.getElementById("albumDescription").value;
+            
+            // Add new album to the albumsData array
+            const newAlbum = {
+                id: albumsData.length + 1,
+                title: albumName,
+                cover: `https://picsum.photos/id/${110 + albumsData.length}/300/200`,
+                count: 0
+            };
+            albumsData.push(newAlbum);
+
+            // Re-render albums
+            renderAlbums();
+
+            // Close modal and reset form
+            modal.style.display = "none";
+            form.reset();
+        }
+    </script>
+</body>
+</html>

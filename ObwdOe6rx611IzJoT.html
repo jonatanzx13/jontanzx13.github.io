@@ -1,0 +1,248 @@
+<html><head><base href="https://fotospromax.com/buscar">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Búsqueda</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .search-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .search-box {
+        display: flex;
+        margin-bottom: 2em;
+    }
+    .search-input {
+        flex-grow: 1;
+        padding: 0.8em;
+        font-size: 1em;
+        border: 2px solid #3f51b5;
+        border-radius: 25px 0 0 25px;
+        outline: none;
+    }
+    .search-button {
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        border-radius: 0 25px 25px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .search-button:hover {
+        background-color: #283593;
+    }
+    .filters {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1em;
+    }
+    .filter-button {
+        background-color: #e0e0e0;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .filter-button:hover {
+        background-color: #bdbdbd;
+    }
+    .results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 1em;
+    }
+    .photo-title {
+        margin: 0;
+        font-size: 1em;
+        color: #333;
+    }
+    .photo-author {
+        margin: 0.5em 0 0;
+        font-size: 0.9em;
+        color: #666;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="search-container">
+                <form class="search-box" action="/buscar" method="GET">
+                    <input type="text" name="q" placeholder="Buscar fotos..." class="search-input">
+                    <button type="submit" class="search-button">Buscar</button>
+                </form>
+                <div class="filters">
+                    <button class="filter-button">Recientes</button>
+                    <button class="filter-button">Populares</button>
+                    <button class="filter-button">Categorías</button>
+                    <button class="filter-button">Resolución</button>
+                </div>
+                <div class="results">
+                    <!-- Resultados de búsqueda simulados -->
+                    <div class="photo-card">
+                        <img src="https://picsum.photos/200/300?random=1" alt="Foto de paisaje">
+                        <div class="photo-info">
+                            <h3 class="photo-title">Paisaje montañoso</h3>
+                            <p class="photo-author">Por: Juan Pérez</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="https://picsum.photos/200/300?random=2" alt="Foto de ciudad">
+                        <div class="photo-info">
+                            <h3 class="photo-title">Ciudad nocturna</h3>
+                            <p class="photo-author">Por: María García</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="https://picsum.photos/200/300?random=3" alt="Foto de playa">
+                        <div class="photo-info">
+                            <h3 class="photo-title">Atardecer en la playa</h3>
+                            <p class="photo-author">Por: Carlos Rodríguez</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="https://picsum.photos/200/300?random=4" alt="Foto de bosque">
+                        <div class="photo-info">
+                            <h3 class="photo-title">Bosque neblinoso</h3>
+                            <p class="photo-author">Por: Ana Martínez</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="https://picsum.photos/200/300?random=5" alt="Foto de arquitectura">
+                        <div class="photo-info">
+                            <h3 class="photo-title">Edificio moderno</h3>
+                            <p class="photo-author">Por: Luis Sánchez</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="https://picsum.photos/200/300?random=6" alt="Foto de naturaleza">
+                        <div class="photo-info">
+                            <h3 class="photo-title">Cascada escondida</h3>
+                            <p class="photo-author">Por: Elena Torres</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simulación de búsqueda
+        document.querySelector('.search-box').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.querySelector('.search-input').value;
+            alert(`Buscando: "${query}". Funcionalidad en desarrollo.`);
+        });
+
+        // Simulación de filtros
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert(`Filtro "${this.textContent}" aplicado. Funcionalidad en desarrollo.`);
+            });
+        });
+
+        // Efecto hover para las tarjetas de fotos
+        document.querySelectorAll('.photo-card').forEach(card => {
+            card.addEventListener('mouseover', function() {
+                this.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
+            });
+            card.addEventListener('mouseout', function() {
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Inicio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: inline-flex;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        padding: 10px 15px;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1015/1200/400');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        margin-bottom: 40px;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .recent-photos {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        padding: 20px 0;
+    }
+    .photo-card {
+        flex: 0 0 auto;
+        width: 250px;
+        margin-right: 20px;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+    }
+    .photo-price {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(26, 35, 126, 0.8);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+    .publish-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .publish-button:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+    }
+    .scroll-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .scroll-button {
+        background-color: #1a237e;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .scroll-button:hover {
+        background-color: #283593;
+    }
+    .cart-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #ff9800;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .cart-button:hover {
+        background-color: #f57c00;
+        transform: scale(1.05);
+    }
+    .cart-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .cart-modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+    .cart-total {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 20px;
+    }
+    .paypal-button {
+        background-color: #0070ba;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .paypal-button:hover {
+        background-color: #003087;
+    }
+    .add-to-cart {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .add-to-cart:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Captura, Comparte, Inspira</h1>
+        <p>Únete a nuestra comunidad de fotógrafos apasionados y comparte tus mejores momentos con el mundo.</p>
+        <a href="/registro" class="cta-button">Únete Ahora</a>
+    </div>
+
+    <div class="container">
+        <h2>Fotos Recientes</h2>
+        <div class="recent-photos" id="recentPhotos">
+            <!-- Las fotos recientes se generarán dinámicamente con JavaScript -->
+        </div>
+        <div class="scroll-buttons">
+            <button class="scroll-button" onclick="scrollPhotos('left')">&#8592; Anterior</button>
+            <button class="scroll-button" onclick="scrollPhotos('right')">Siguiente &#8594;</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <button class="publish-button" onclick="alert('Función de publicar foto')">Publicar Foto</button>
+    <button class="cart-button" onclick="openCart()">Carrito <span id="cartCount">0</span></button>
+
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+            <button class="paypal-button" onclick="checkout()">Pagar con PayPal</button>
+        </div>
+    </div>
+
+    <script>
+        // Datos de ejemplo para las fotos recientes
+        const recentPhotos = [
+            { id: 1, title: "Atardecer en la playa", author: "María López", price: 25.99 },
+            { id: 2, title: "Montañas nevadas", author: "Juan Pérez", price: 19.99 },
+            { id: 3, title: "Calles de París", author: "Ana García", price: 29.99 },
+            { id: 4, title: "Retrato en blanco y negro", author: "Carlos Ruiz", price: 15.99 },
+            { id: 5, title: "Fauna salvaje", author: "Laura Martínez", price: 34.99 },
+            { id: 6, title: "Arquitectura moderna", author: "Pedro Sánchez", price: 22.99 },
+            { id: 7, title: "Paisaje otoñal", author: "Elena Gómez", price: 27.99 },
+            { id: 8, title: "Macro fotografía", author: "Roberto Fernández", price: 18.99 },
+            { id: 9, title: "Cielo estrellado", author: "Isabel Torres", price: 31.99 },
+            { id: 10, title: "Bodegón artístico", author: "Miguel Ángel Ruiz", price: 23.99 }
+        ];
+
+        let cart = [];
+
+        function createRecentPhotoCards() {
+            const gallery = document.getElementById('recentPhotos');
+            recentPhotos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.classList.add('photo-card');
+                photoCard.innerHTML = `
+                    <img src="https://picsum.photos/id/${photo.id + 100}/400/300" alt="${photo.title}">
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                        <button class="add-to-cart" onclick="addToCart(${photo.id})">Añadir al carrito</button>
+                    </div>
+                    <div class="photo-price">$${photo.price.toFixed(2)}</div>
+                `;
+                gallery.appendChild(photoCard);
+            });
+        }
+
+        // Inicializar la galería de fotos recientes
+        createRecentPhotoCards();
+
+        function scrollPhotos(direction) {
+            const gallery = document.getElementById('recentPhotos');
+            const scrollAmount = 300; // Ajusta este valor según necesites
+            if (direction === 'left') {
+                gallery.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                gallery.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function addToCart(photoId) {
+            const photo = recentPhotos.find(p => p.id === photoId);
+            if (photo) {
+                cart.push(photo);
+                updateCartCount();
+            }
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+            updateCartDisplay();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function updateCartDisplay() {
+            const cartItemsElement = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            cartItemsElement.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <span>${item.title}</span>
+                    <span>$${item.price.toFixed(2)}</span>
+                `;
+                cartItemsElement.appendChild(itemElement);
+                total += item.price;
+            });
+
+            cartTotalElement.textContent = total.toFixed(2);
+        }
+
+        function checkout() {
+            alert('Redirigiendo a PayPal para completar el pago...');
+            // Aquí iría la lógica para redirigir a PayPal o iniciar el proceso de pago
+        }
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('cartModal')) {
+                closeCart();
+            }
+        }
+    </script>
+</body>
+</html>

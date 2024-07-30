@@ -1,0 +1,211 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Captura Momentos Extraordinarios</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em 0;
+    }
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-left: 20px;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background: linear-gradient(rgba(26, 35, 126, 0.7), rgba(26, 35, 126, 0.7)), url('https://picsum.photos/1200/600') no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .features {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 50px 0;
+    }
+    .feature {
+        flex-basis: 30%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .feature i {
+        font-size: 3em;
+        color: #1a237e;
+        margin-bottom: 15px;
+    }
+    .testimonials {
+        background-color: #e8eaf6;
+        padding: 50px 0;
+    }
+    .testimonial {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .testimonial img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+        }
+        nav ul {
+            margin-top: 20px;
+        }
+        .feature {
+            flex-basis: 100%;
+        }
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#pricing">Precios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="/dashboard">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Captura Momentos Extraordinarios</h1>
+            <p>Almacena, organiza y comparte tus recuerdos más preciados con Fotos Pro Max</p>
+            <a href="/registro" class="cta-button">Comienza Gratis</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h2>Almacenamiento Ilimitado</h2>
+                <p>Guarda todas tus fotos y videos sin preocuparte por el espacio.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-magic"></i>
+                <h2>Edición Avanzada</h2>
+                <p>Herramientas de edición profesionales para perfeccionar tus imágenes.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-share-alt"></i>
+                <h2>Compartir Fácilmente</h2>
+                <p>Comparte tus álbumes con amigos y familiares en un solo clic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial">
+                <img src="https://picsum.photos/100/100?random=1" alt="Usuario satisfecho">
+                <p>"Fotos Pro Max ha revolucionado la forma en que organizo mis recuerdos. ¡Es increíble!"</p>
+                <h3>- María G.</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu interés! El registro estará disponible próximamente. Mientras tanto, explora todas las increíbles características que Fotos Pro Max tiene para ofrecerte.');
+        });
+
+        // Animación suave para el scroll de los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cambio dinámico de la imagen de fondo del hero
+        setInterval(() => {
+            const heroSection = document.querySelector('.hero');
+            heroSection.style.backgroundImage = `linear-gradient(rgba(26, 35, 126, 0.7), rgba(26, 35, 126, 0.7)), url('https://picsum.photos/1200/600?random=${Math.random()}')`;
+        }, 10000);
+    </script>
+</body>
+</html>

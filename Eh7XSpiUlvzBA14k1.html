@@ -1,0 +1,385 @@
+<html><head><base href="https://fotospromax.com/public"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Galería Pública Interactiva</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        overflow-x: hidden;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        position: relative;
+        z-index: 1000;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: inline-flex;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        display: inline-block;
+        padding: 10px 15px;
+        border-radius: 20px;
+    }
+    nav ul li a:hover, nav ul li a:active {
+        color: #ffab40;
+        background-color: rgba(255,255,255,0.1);
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+    }
+    .rating {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .star {
+        font-size: 20px;
+        color: #ffd700;
+        margin: 0 2px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    .star:hover {
+        transform: scale(1.2);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .search-bar input {
+        width: 60%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 20px 0 0 20px;
+        outline: none;
+    }
+    .search-bar button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .search-bar button:hover {
+        background-color: #45a049;
+    }
+    /* Estilos para el modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+        margin: 5% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 700px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-image {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" draggable="true">Inicio</a></li>
+                <li><a href="/galeria" draggable="true">Galería</a></li>
+                <li><a href="/populares" draggable="true">Populares</a></li>
+                <li><a href="/registro" draggable="true">Registrarse</a></li>
+                <li><a href="/iniciar-sesion" draggable="true">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar fotos...">
+            <button>Buscar</button>
+        </div>
+
+        <div class="gallery">
+            <!-- Las imágenes se generarán dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal para visualizar imágenes -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img class="modal-image" src="" alt="Imagen ampliada">
+            <div class="photo-info">
+                <h2 class="modal-title"></h2>
+                <p class="modal-author"></p>
+                <div class="modal-rating"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Datos de ejemplo para las fotos
+        const photos = [
+            { id: 1, title: "Atardecer en la playa", author: "Marina López", rating: 4.5 },
+            { id: 2, title: "Montañas nevadas", author: "Carlos Ruiz", rating: 4.8 },
+            { id: 3, title: "Ciudad nocturna", author: "Ana García", rating: 4.2 },
+            { id: 4, title: "Bosque otoñal", author: "Pedro Sánchez", rating: 4.7 },
+            { id: 5, title: "Retrato en blanco y negro", author: "Laura Martínez", rating: 4.9 },
+            { id: 6, title: "Vida salvaje", author: "Javier Fernández", rating: 4.6 },
+            { id: 7, title: "Arquitectura moderna", author: "Isabel Gómez", rating: 4.3 },
+            { id: 8, title: "Macro de una flor", author: "Miguel Ángel Pérez", rating: 4.4 }
+        ];
+
+        // Función para generar estrellas basadas en la calificación
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+            let starsHtml = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                starsHtml += '<span class="star" data-rating="' + (i+1) + '">★</span>';
+            }
+            if (halfStar) {
+                starsHtml += '<span class="star" data-rating="' + (fullStars + 0.5) + '">½</span>';
+            }
+            const emptyStars = 5 - fullStars - halfStar;
+            for (let i = 0; i < emptyStars; i++) {
+                starsHtml += '<span class="star" data-rating="' + (fullStars + halfStar + i + 1) + '">☆</span>';
+            }
+            
+            return starsHtml;
+        }
+
+        // Función para crear las tarjetas de fotos
+        function createPhotoCards() {
+            const gallery = document.querySelector('.gallery');
+            photos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.classList.add('photo-card');
+                photoCard.innerHTML = `
+                    <img src="https://picsum.photos/id/${photo.id + 100}/300/200" alt="${photo.title}">
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                        <div class="rating">${generateStars(photo.rating)}</div>
+                    </div>
+                `;
+                photoCard.addEventListener('click', () => openModal(photo));
+                gallery.appendChild(photoCard);
+            });
+        }
+
+        // Modal
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.querySelector(".modal-image");
+        const modalTitle = document.querySelector(".modal-title");
+        const modalAuthor = document.querySelector(".modal-author");
+        const modalRating = document.querySelector(".modal-rating");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        function openModal(photo) {
+            modal.style.display = "block";
+            modalImg.src = `https://picsum.photos/id/${photo.id + 100}/600/400`;
+            modalTitle.textContent = photo.title;
+            modalAuthor.textContent = `por ${photo.author}`;
+            modalRating.innerHTML = generateStars(photo.rating);
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Llamar a la función para crear las tarjetas de fotos cuando se carga la página
+        window.onload = createPhotoCards;
+
+        // Funcionalidad de búsqueda
+        const searchButton = document.querySelector('.search-bar button');
+        const searchInput = document.querySelector('.search-bar input');
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const photoCards = document.querySelectorAll('.photo-card');
+            
+            photoCards.forEach(card => {
+                const title = card.querySelector('.photo-title').textContent.toLowerCase();
+                const author = card.querySelector('.photo-author').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || author.includes(searchTerm)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Funcionalidad de arrastrar y soltar para los botones de navegación
+        const navItems = document.querySelectorAll('nav ul li a');
+
+        navItems.forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+            item.addEventListener('dragend', dragEnd);
+        });
+
+        document.addEventListener('dragover', dragOver);
+        document.addEventListener('drop', drop);
+
+        let draggedItem = null;
+
+        function dragStart(e) {
+            draggedItem = this;
+            setTimeout(() => this.style.opacity = '0.5', 0);
+        }
+
+        function dragEnd() {
+            setTimeout(() => this.style.opacity = '1', 0);
+            draggedItem = null;
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            if (draggedItem) {
+                const dropX = e.clientX;
+                const dropY = e.clientY;
+                const navRect = document.querySelector('nav').getBoundingClientRect();
+
+                if (dropY >= navRect.top && dropY <= navRect.bottom) {
+                    const navItems = Array.from(document.querySelectorAll('nav ul li'));
+                    const dropIndex = navItems.findIndex(item => {
+                        const rect = item.getBoundingClientRect();
+                        return dropX >= rect.left && dropX <= rect.right;
+                    });
+
+                    if (dropIndex !== -1) {
+                        const draggedIndex = navItems.indexOf(draggedItem.parentNode);
+                        if (draggedIndex !== dropIndex) {
+                            const ul = document.querySelector('nav ul');
+                            if (dropIndex < draggedIndex) {
+                                ul.insertBefore(draggedItem.parentNode, navItems[dropIndex]);
+                            } else {
+                                ul.insertBefore(draggedItem.parentNode, navItems[dropIndex].nextSibling);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

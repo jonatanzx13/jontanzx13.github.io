@@ -1,0 +1,232 @@
+<html><head><base href="https://fotospromax.com/precios"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Planes y Precios</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em 0;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+        color: #ffab40;
+    }
+    main {
+        padding: 4em 0;
+    }
+    h1 {
+        text-align: center;
+        color: #1a237e;
+        margin-bottom: 1.5em;
+    }
+    .pricing-table {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        flex-wrap: wrap;
+    }
+    .pricing-plan {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 2em;
+        text-align: center;
+        transition: transform 0.3s ease;
+        flex: 1;
+        min-width: 250px;
+        max-width: 350px;
+    }
+    .pricing-plan:hover {
+        transform: translateY(-10px);
+    }
+    .plan-name {
+        font-size: 1.5em;
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    .plan-price {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    .plan-features {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 1.5em;
+    }
+    .plan-features li {
+        margin-bottom: 0.5em;
+    }
+    .plan-button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .plan-button:hover {
+        background-color: #45a049;
+    }
+    .free-plan {
+        border: 2px solid #4caf50;
+    }
+    .free-plan .plan-name {
+        color: #4caf50;
+    }
+    .free-plan .plan-button {
+        background-color: #4caf50;
+    }
+    .free-plan .plan-button:hover {
+        background-color: #45a049;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 4em;
+    }
+    @media (max-width: 768px) {
+        .pricing-table {
+            flex-direction: column;
+            align-items: center;
+        }
+        .pricing-plan {
+            width: 100%;
+            max-width: none;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Fotos Pro Max</div>
+                <div class="nav-links">
+                    <a href="/">Inicio</a>
+                    <a href="/caracteristicas">Características</a>
+                    <a href="/precios">Precios</a>
+                    <a href="/contacto">Contacto</a>
+                    <a href="/login">Iniciar Sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Nuestros Planes y Precios</h1>
+        <div class="pricing-table">
+            <div class="pricing-plan free-plan">
+                <h2 class="plan-name">Gratis</h2>
+                <div class="plan-price">$0/mes</div>
+                <ul class="plan-features">
+                    <li>5 GB de almacenamiento</li>
+                    <li>Edición básica de fotos</li>
+                    <li>Compartir en redes sociales</li>
+                    <li>Soporte comunitario</li>
+                </ul>
+                <button class="plan-button">Comenzar Gratis</button>
+            </div>
+            <div class="pricing-plan">
+                <h2 class="plan-name">Pro</h2>
+                <div class="plan-price">$19.99/mes</div>
+                <ul class="plan-features">
+                    <li>250 GB de almacenamiento</li>
+                    <li>Edición avanzada de fotos</li>
+                    <li>Compartir en redes sociales</li>
+                    <li>Creación de portafolio</li>
+                    <li>Soporte prioritario</li>
+                </ul>
+                <button class="plan-button">Elegir Plan</button>
+            </div>
+            <div class="pricing-plan">
+                <h2 class="plan-name">Empresarial</h2>
+                <div class="plan-price">$49.99/mes</div>
+                <ul class="plan-features">
+                    <li>Almacenamiento ilimitado</li>
+                    <li>Edición profesional de fotos</li>
+                    <li>Herramientas de colaboración</li>
+                    <li>API para integración</li>
+                    <li>Soporte 24/7</li>
+                </ul>
+                <button class="plan-button">Elegir Plan</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.plan-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const planName = this.closest('.pricing-plan').querySelector('.plan-name').textContent;
+                if (planName === 'Gratis') {
+                    window.location.href = '/registro-gratis';
+                } else {
+                    alert(`Has seleccionado el plan ${planName}. ¡Gracias por elegir Fotos Pro Max!`);
+                    // Aquí se podría redirigir al usuario a una página de registro o checkout para planes pagos
+                }
+            });
+        });
+
+        // Efecto de resaltado al pasar el mouse por encima de los planes
+        document.querySelectorAll('.pricing-plan').forEach(plan => {
+            plan.addEventListener('mouseover', function() {
+                this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            });
+            plan.addEventListener('mouseout', function() {
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Animación suave para el scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<html><head><base href="https://fotospromax.com/perfil">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Mi Perfil</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .profile-header {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+    .profile-info h1 {
+        margin: 0;
+        color: #1a237e;
+    }
+    .profile-info p {
+        margin: 5px 0;
+        color: #666;
+    }
+    .edit-profile-btn {
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    .edit-profile-btn:hover {
+        background-color: #303f9f;
+    }
+    .profile-content {
+        display: flex;
+        margin-top: 20px;
+    }
+    .profile-stats {
+        flex: 1;
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-right: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .stats-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .recent-activity {
+        flex: 2;
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .activity-item {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+    }
+    .activity-item:last-child {
+        border-bottom: none;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/dashboard">Panel</a></li>
+                <li><a href="/albums">Álbumes</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile-header">
+            <img src="https://picsum.photos/150/150" alt="Foto de perfil" class="profile-pic">
+            <div class="profile-info">
+                <h1>Juan Pérez</h1>
+                <p>@juanperez</p>
+                <p>Fotógrafo aficionado | Amante de la naturaleza</p>
+                <button class="edit-profile-btn">Editar Perfil</button>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-stats">
+                <h2>Estadísticas</h2>
+                <div class="stats-item">
+                    <span>Fotos subidas:</span>
+                    <span>237</span>
+                </div>
+                <div class="stats-item">
+                    <span>Álbumes creados:</span>
+                    <span>12</span>
+                </div>
+                <div class="stats-item">
+                    <span>Seguidores:</span>
+                    <span>1,458</span>
+                </div>
+                <div class="stats-item">
+                    <span>Siguiendo:</span>
+                    <span>673</span>
+                </div>
+                <div class="stats-item">
+                    <span>Me gusta recibidos:</span>
+                    <span>3,721</span>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h2>Actividad Reciente</h2>
+                <div class="activity-item">
+                    <p><strong>Hace 2 horas:</strong> Subiste una nueva foto al álbum "Atardecer en la playa"</p>
+                </div>
+                <div class="activity-item">
+                    <p><strong>Ayer:</strong> Creaste un nuevo álbum "Viaje a las montañas"</p>
+                </div>
+                <div class="activity-item">
+                    <p><strong>Hace 3 días:</strong> Recibiste 50 me gusta en tu foto "Cascada escondida"</p>
+                </div>
+                <div class="activity-item">
+                    <p><strong>La semana pasada:</strong> Compartiste 5 fotos en el grupo "Fotografía de naturaleza"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.edit-profile-btn').addEventListener('click', function() {
+            alert('¡Funcionalidad de edición de perfil en desarrollo! Pronto podrás personalizar tu perfil en Fotos Pro Max.');
+        });
+
+        // Simulación de datos dinámicos
+        function updateStats() {
+            const statsItems = document.querySelectorAll('.stats-item span:last-child');
+            statsItems[0].textContent = Math.floor(Math.random() * 500) + 100;
+            statsItems[1].textContent = Math.floor(Math.random() * 20) + 5;
+            statsItems[2].textContent = Math.floor(Math.random() * 2000) + 1000;
+            statsItems[3].textContent = Math.floor(Math.random() * 1000) + 500;
+            statsItems[4].textContent = Math.floor(Math.random() * 5000) + 2000;
+        }
+
+        // Actualizar estadísticas cada 10 segundos
+        setInterval(updateStats, 10000);
+
+        // Llamada inicial para mostrar datos aleatorios
+        updateStats();
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<html><head><base href="https://fotospromax.com/"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Tu Plataforma de Fotos Profesionales</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+    }
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background: linear-gradient(rgba(26, 35, 126, 0.7), rgba(26, 35, 126, 0.7)), url('https://source.unsplash.com/random/1600x900/?photography') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    .hero-content {
+        max-width: 800px;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 12px 24px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .features {
+        padding: 4em 0;
+        background-color: white;
+    }
+    .features h2 {
+        text-align: center;
+        color: #1a237e;
+        margin-bottom: 1.5em;
+    }
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2em;
+    }
+    .feature {
+        text-align: center;
+        padding: 1em;
+    }
+    .feature i {
+        font-size: 3em;
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2em;
+        }
+        .hero p {
+            font-size: 1em;
+        }
+        .nav-links {
+            display: none;
+        }
+    }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Fotos Pro Max</div>
+                <div class="nav-links">
+                    <a href="/">Inicio</a>
+                    <a href="/caracteristicas">Características</a>
+                    <a href="/precios">Precios</a>
+                    <a href="/contacto">Contacto</a>
+                    <a href="/login">Iniciar Sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Captura, Edita y Comparte tus Mejores Momentos</h1>
+            <p>Con Fotos Pro Max, tus recuerdos están seguros y listos para brillar. Únete a nuestra comunidad de fotógrafos profesionales y aficionados.</p>
+            <a href="/registro" class="cta-button">Comienza Gratis Ahora</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>¿Por qué elegir Fotos Pro Max?</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Almacenamiento Ilimitado</h3>
+                    <p>Guarda todas tus fotos sin preocuparte por el espacio.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-edit"></i>
+                    <h3>Edición Profesional</h3>
+                    <p>Herramientas de edición avanzadas al alcance de tu mano.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Compartir Fácilmente</h3>
+                    <p>Comparte tus creaciones con amigos o el mundo entero.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>Seguridad Garantizada</h3>
+                    <p>Tus fotos están protegidas con encriptación de nivel militar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto de desplazamiento suave para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animación de entrada para las características
+        const features = document.querySelectorAll('.feature');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {threshold: 0.1});
+
+        features.forEach(feature => {
+            feature.style.opacity = 0;
+            feature.style.transform = 'translateY(20px)';
+            feature.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(feature);
+        });
+
+        // Cambiar la imagen de fondo del hero cada 10 segundos
+        setInterval(() => {
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundImage = `linear-gradient(rgba(26, 35, 126, 0.7), rgba(26, 35, 126, 0.7)), url('https://source.unsplash.com/random/1600x900/?photography&t=${Date.now()}')`;
+        }, 10000);
+    </script>
+</body>
+</html>

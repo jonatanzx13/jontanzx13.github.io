@@ -1,0 +1,273 @@
+<html><head><base href="https://fotospromax.com/dashboard"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Panel de Control</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        display: flex;
+        padding: 2em;
+    }
+    .sidebar {
+        width: 200px;
+        background-color: #3f51b5;
+        color: white;
+        padding: 1em;
+        border-radius: 8px;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .sidebar ul li {
+        margin-bottom: 1em;
+    }
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .sidebar ul li a:hover {
+        color: #ffab40;
+    }
+    .content {
+        flex: 1;
+        margin-left: 2em;
+    }
+    .dashboard-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        margin-bottom: 1.5em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+        color: #1a237e;
+    }
+    .stats {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .stat-card {
+        background-color: #3f51b5;
+        color: white;
+        border-radius: 8px;
+        padding: 1em;
+        margin: 0.5em;
+        flex: 1;
+        min-width: 150px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+    .upload-btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    .upload-btn:hover {
+        background-color: #45a049;
+    }
+    .recent-photos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    .photo-thumbnail {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .photo-thumbnail:hover {
+        transform: scale(1.05);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    #usage-bar {
+        width: 100%;
+        height: 20px;
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+    #usage-progress {
+        height: 100%;
+        background-color: #4caf50;
+        transition: width 0.5s ease-in-out;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#overview">Vista General</a></li>
+                    <li><a href="#upload">Subir Fotos</a></li>
+                    <li><a href="#albums">Mis Álbumes</a></li>
+                    <li><a href="#settings">Configuración</a></li>
+                </ul>
+            </aside>
+            <div class="content">
+                <section id="overview" class="dashboard-card">
+                    <h1>Bienvenido a Fotos Pro Max</h1>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3>Fotos</h3>
+                            <p id="photo-count">Cargando...</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Álbumes</h3>
+                            <p id="album-count">Cargando...</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Espacio Usado</h3>
+                            <p id="space-used">Cargando...</p>
+                            <div id="usage-bar">
+                                <div id="usage-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="upload" class="dashboard-card">
+                    <h2>Subir Fotos</h2>
+                    <button class="upload-btn">Seleccionar Archivos</button>
+                </section>
+                <section id="recent" class="dashboard-card">
+                    <h2>Fotos Recientes</h2>
+                    <div class="recent-photos" id="recent-photos-container">
+                        <!-- Las fotos se cargarán dinámicamente aquí -->
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simulación de carga de datos
+        function loadDashboardData() {
+            const photoCount = Math.floor(Math.random() * 500) + 100;
+            const albumCount = Math.floor(Math.random() * 20) + 5;
+            const usedSpace = (Math.random() * 9 + 1).toFixed(1);
+            const totalSpace = 10;
+            const usagePercentage = (usedSpace / totalSpace) * 100;
+
+            document.getElementById('photo-count').textContent = photoCount;
+            document.getElementById('album-count').textContent = albumCount;
+            document.getElementById('space-used').textContent = `${usedSpace} GB / ${totalSpace} GB`;
+            
+            const usageProgressBar = document.getElementById('usage-progress');
+            usageProgressBar.style.width = `${usagePercentage}%`;
+            usageProgressBar.style.backgroundColor = usagePercentage > 90 ? '#ff5252' : '#4caf50';
+
+            loadRecentPhotos();
+        }
+
+        function loadRecentPhotos() {
+            const recentPhotosContainer = document.getElementById('recent-photos-container');
+            recentPhotosContainer.innerHTML = ''; // Limpiar fotos existentes
+
+            for (let i = 1; i <= 6; i++) {
+                const img = document.createElement('img');
+                img.src = `https://picsum.photos/120/120?random=${Math.random()}`;
+                img.alt = `Foto reciente ${i}`;
+                img.className = 'photo-thumbnail';
+                img.addEventListener('mouseover', function() {
+                    this.style.boxShadow = '0 0 15px rgba(0,0,0,0.3)';
+                });
+                img.addEventListener('mouseout', function() {
+                    this.style.boxShadow = 'none';
+                });
+                recentPhotosContainer.appendChild(img);
+            }
+        }
+
+        document.querySelector('.upload-btn').addEventListener('click', function() {
+            alert('¡Funcionalidad de carga de fotos en desarrollo! Pronto podrás subir tus mejores capturas a Fotos Pro Max.');
+        });
+
+        // Cargar datos al iniciar la página
+        window.addEventListener('load', loadDashboardData);
+
+        // Actualizar datos cada 30 segundos para simular actividad
+        setInterval(loadDashboardData, 30000);
+    </script>
+</body>
+</html>

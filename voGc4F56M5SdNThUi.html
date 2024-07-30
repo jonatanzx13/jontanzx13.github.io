@@ -1,0 +1,242 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Inicio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background-image: url('https://source.unsplash.com/random/1200x400/?photography');
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .features {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+    .feature {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        width: 30%;
+    }
+    .feature i {
+        font-size: 3em;
+        color: #1a237e;
+        margin-bottom: 20px;
+    }
+    .recent-photos {
+        margin-top: 50px;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .photo-item {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover {
+        transform: translateY(-5px);
+    }
+    .photo-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 50px;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Captura el mundo a través de tu lente</h1>
+            <p>Únete a nuestra comunidad de fotógrafos apasionados y comparte tus mejores momentos</p>
+            <a href="/subir" class="cta-button">Sube tu primera foto</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-camera"></i>
+                <h2>Comparte tus fotos</h2>
+                <p>Sube tus mejores capturas y muéstralas al mundo</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h2>Únete a la comunidad</h2>
+                <p>Conecta con otros fotógrafos y obtén inspiración</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Vende tus obras</h2>
+                <p>Monetiza tu pasión vendiendo tus mejores fotos</p>
+            </div>
+        </div>
+
+        <div class="recent-photos">
+            <h2>Fotos recientes</h2>
+            <div class="photo-grid" id="recentPhotos">
+                <!-- Las fotos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const recentPhotos = [
+            { id: 1, title: "Amanecer en la montaña", author: "Carlos Pérez", img: "https://source.unsplash.com/random/400x300/?mountain,sunrise" },
+            { id: 2, title: "Retrato urbano", author: "Ana García", img: "https://source.unsplash.com/random/400x300/?urban,portrait" },
+            { id: 3, title: "Fauna silvestre", author: "Roberto Sánchez", img: "https://source.unsplash.com/random/400x300/?wildlife" },
+            { id: 4, title: "Arquitectura moderna", author: "Laura Gómez", img: "https://source.unsplash.com/random/400x300/?architecture,modern" },
+            { id: 5, title: "Macro naturaleza", author: "Miguel Ángel", img: "https://source.unsplash.com/random/400x300/?macro,nature" },
+            { id: 6, title: "Escena callejera", author: "Isabel Torres", img: "https://source.unsplash.com/random/400x300/?street,scene" },
+        ];
+
+        function renderRecentPhotos() {
+            const photoGrid = document.getElementById('recentPhotos');
+            recentPhotos.forEach(photo => {
+                const photoElement = document.createElement('div');
+                photoElement.className = 'photo-item';
+                photoElement.innerHTML = `
+                    <img src="${photo.img}" alt="${photo.title}">
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                    </div>
+                `;
+                photoGrid.appendChild(photoElement);
+            });
+        }
+
+        renderRecentPhotos();
+    </script>
+</body>
+</html>

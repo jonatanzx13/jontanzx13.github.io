@@ -1,0 +1,281 @@
+<html><head><base href="https://fotospromax.com/buscar">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Búsqueda</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .search-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .search-bar {
+        display: flex;
+        margin-bottom: 2em;
+    }
+    .search-input {
+        flex: 1;
+        padding: 0.8em;
+        font-size: 1em;
+        border: 2px solid #3f51b5;
+        border-radius: 25px 0 0 25px;
+        outline: none;
+    }
+    .search-button {
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        border-radius: 0 25px 25px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .search-button:hover {
+        background-color: #303f9f;
+    }
+    .filter-options {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    .filter-button {
+        margin: 0 0.5em;
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+        background-color: #e0e0e0;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .filter-button:hover, .filter-button.active {
+        background-color: #bdbdbd;
+    }
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5em;
+    }
+    .result-item {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .result-item:hover {
+        transform: translateY(-5px);
+    }
+    .result-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .result-info {
+        padding: 1em;
+    }
+    .result-title {
+        margin: 0 0 0.5em;
+        font-size: 1.1em;
+    }
+    .result-author {
+        font-size: 0.9em;
+        color: #666;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    .load-more {
+        display: block;
+        width: 200px;
+        margin: 2em auto;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .load-more:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="search-container">
+                <form class="search-bar" id="searchForm">
+                    <input type="text" class="search-input" placeholder="Buscar fotos, álbumes o usuarios..." id="searchInput">
+                    <button type="submit" class="search-button">Buscar</button>
+                </form>
+                <div class="filter-options">
+                    <button class="filter-button active" data-filter="all">Todos</button>
+                    <button class="filter-button" data-filter="photos">Fotos</button>
+                    <button class="filter-button" data-filter="albums">Álbumes</button>
+                    <button class="filter-button" data-filter="users">Usuarios</button>
+                </div>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Search results will be dynamically added here -->
+                </div>
+                <button class="load-more" id="loadMoreBtn">Cargar más</button>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        const resultsGrid = document.getElementById('resultsGrid');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const filterButtons = document.querySelectorAll('.filter-button');
+
+        // Sample data for search results
+        const sampleResults = [
+            { type: 'photo', title: 'Atardecer en la playa', author: 'María López', image: 'https://picsum.photos/300/200?random=1' },
+            { type: 'album', title: 'Viaje a París', author: 'Carlos Rodríguez', image: 'https://picsum.photos/300/200?random=2' },
+            { type: 'user', title: 'Ana García', author: '@anagphotography', image: 'https://picsum.photos/300/200?random=3' },
+            { type: 'photo', title: 'Montañas nevadas', author: 'Pedro Sánchez', image: 'https://picsum.photos/300/200?random=4' },
+            { type: 'album', title: 'Fauna silvestre', author: 'Laura Martínez', image: 'https://picsum.photos/300/200?random=5' },
+            { type: 'user', title: 'Juan Pérez', author: '@juanperezphoto', image: 'https://picsum.photos/300/200?random=6' },
+            { type: 'photo', title: 'Ciudad nocturna', author: 'Elena Gómez', image: 'https://picsum.photos/300/200?random=7' },
+            { type: 'album', title: 'Arquitectura moderna', author: 'Miguel Fernández', image: 'https://picsum.photos/300/200?random=8' },
+            { type: 'user', title: 'Sofia Ruiz', author: '@sofiaruizart', image: 'https://picsum.photos/300/200?random=9' },
+        ];
+
+        let currentFilter = 'all';
+
+        function createResultItem(result) {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'result-item';
+            resultItem.innerHTML = `
+                <img src="${result.image}" alt="${result.title}" class="result-image">
+                <div class="result-info">
+                    <h3 class="result-title">${result.title}</h3>
+                    <p class="result-author">${result.author}</p>
+                </div>
+            `;
+            return resultItem;
+        }
+
+        function displayResults(results) {
+            resultsGrid.innerHTML = '';
+            results.forEach(result => {
+                if (currentFilter === 'all' || result.type === currentFilter) {
+                    resultsGrid.appendChild(createResultItem(result));
+                }
+            });
+        }
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredResults = sampleResults.filter(result => 
+                result.title.toLowerCase().includes(searchTerm) || 
+                result.author.toLowerCase().includes(searchTerm)
+            );
+            displayResults(filteredResults);
+        });
+
+        loadMoreBtn.addEventListener('click', function() {
+            // In a real application, this would load more results from the server
+            // For this example, we'll just add some dummy results
+            for (let i = 0; i < 3; i++) {
+                const newResult = {
+                    type: ['photo', 'album', 'user'][Math.floor(Math.random() * 3)],
+                    title: `Nuevo resultado ${i+1}`,
+                    author: `Usuario ${Math.floor(Math.random() * 100)}`,
+                    image: `https://picsum.photos/300/200?random=${Math.random()}`
+                };
+                sampleResults.push(newResult);
+                if (currentFilter === 'all' || newResult.type === currentFilter) {
+                    resultsGrid.appendChild(createResultItem(newResult));
+                }
+            }
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                currentFilter = this.getAttribute('data-filter');
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                displayResults(sampleResults);
+            });
+        });
+
+        // Initial display
+        displayResults(sampleResults);
+    </script>
+</body>
+</html>

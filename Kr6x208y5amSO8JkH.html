@@ -1,0 +1,292 @@
+<html><head><base href="https://fotospromax.com/galeria">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Galería</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .gallery-header {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+    .gallery-header h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+    }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+    }
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    .gallery-item .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .overlay {
+        opacity: 1;
+    }
+    .gallery-item .overlay h3 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+    .gallery-item .overlay p {
+        margin: 5px 0 0;
+        font-size: 0.9em;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    #lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        justify-content: center;
+        align-items: center;
+    }
+    #lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+    }
+    #lightbox-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="gallery-header">
+            <h1>Nuestra Galería de Fotos</h1>
+            <p>Explora nuestra colección de imágenes impresionantes</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?nature" alt="Naturaleza" width="400" height="300">
+                <div class="overlay">
+                    <h3>Naturaleza</h3>
+                    <p>Paisaje natural</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?city" alt="Ciudad" width="400" height="300">
+                <div class="overlay">
+                    <h3>Ciudad</h3>
+                    <p>Paisaje urbano</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?people" alt="Personas" width="400" height="300">
+                <div class="overlay">
+                    <h3>Personas</h3>
+                    <p>Retrato</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?food" alt="Comida" width="400" height="300">
+                <div class="overlay">
+                    <h3>Comida</h3>
+                    <p>Gastronomía</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?technology" alt="Tecnología" width="400" height="300">
+                <div class="overlay">
+                    <h3>Tecnología</h3>
+                    <p>Innovación</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?art" alt="Arte" width="400" height="300">
+                <div class="overlay">
+                    <h3>Arte</h3>
+                    <p>Expresión creativa</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?travel" alt="Viajes" width="400" height="300">
+                <div class="overlay">
+                    <h3>Viajes</h3>
+                    <p>Aventuras</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/400x300?animals" alt="Animales" width="400" height="300">
+                <div class="overlay">
+                    <h3>Animales</h3>
+                    <p>Vida salvaje</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox">
+        <div id="lightbox-content">
+            <img id="lightbox-image" src="" alt="Imagen ampliada">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Lightbox functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                lightboxImage.src = imgSrc;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        lightbox.addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+
+        // Lazy loading
+        const images = document.querySelectorAll('.gallery-item img');
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.src;
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, options);
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    </script>
+</body>
+</html>

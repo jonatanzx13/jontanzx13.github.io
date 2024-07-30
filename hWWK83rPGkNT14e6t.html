@@ -1,0 +1,225 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Captura Momentos Extraordinarios</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em 0;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+    .nav-links li {
+        margin-left: 20px;
+    }
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background-image: url('https://picsum.photos/1200/600');
+        background-size: cover;
+        background-position: center;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    .hero-content {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 2em;
+        border-radius: 10px;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #4caf50;
+        color: white;
+        padding: 0.8em 1.5em;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #45a049;
+    }
+    .features {
+        padding: 4em 0;
+        background-color: white;
+    }
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2em;
+    }
+    .feature {
+        text-align: center;
+        padding: 1em;
+    }
+    .feature i {
+        font-size: 3em;
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    .testimonials {
+        background-color: #f0f2f5;
+        padding: 4em 0;
+    }
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2em;
+    }
+    .testimonial {
+        background-color: white;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 2em 0;
+    }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Fotos Pro Max</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#pricing">Precios</a></li>
+                    <li><a href="#about">Acerca de</a></li>
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Captura Momentos Extraordinarios</h1>
+            <p>Almacena, organiza y comparte tus recuerdos más preciados con Fotos Pro Max</p>
+            <a href="/registro" class="cta-button">Comienza Gratis</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Características Destacadas</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Almacenamiento Ilimitado</h3>
+                    <p>Guarda todas tus fotos sin preocuparte por el espacio</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Compartir Fácilmente</h3>
+                    <p>Comparte tus álbumes con amigos y familiares</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-magic"></i>
+                    <h3>Edición Avanzada</h3>
+                    <p>Herramientas de edición poderosas y fáciles de usar</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>Seguridad Garantizada</h3>
+                    <p>Tus fotos están seguras con nuestra encriptación de nivel militar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Lo que dicen nuestros usuarios</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Fotos Pro Max ha revolucionado la forma en que organizo mis recuerdos. ¡Es increíble!"</p>
+                    <strong>- María G.</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"La calidad de las herramientas de edición es excepcional. Ahora todas mis fotos lucen profesionales."</p>
+                    <strong>- Carlos R.</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Compartir álbumes con mi familia nunca había sido tan fácil. ¡Gracias, Fotos Pro Max!"</p>
+                    <strong>- Ana L.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+            <ul class="nav-links">
+                <li><a href="/terminos">Términos de Servicio</a></li>
+                <li><a href="/privacidad">Política de Privacidad</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic hero image
+        function changeHeroImage() {
+            const heroSection = document.querySelector('.hero');
+            heroSection.style.backgroundImage = `url('https://picsum.photos/1200/600?random=${Math.random()}')`;
+        }
+        setInterval(changeHeroImage, 10000); // Change image every 10 seconds
+    </script>
+</body>
+</html>

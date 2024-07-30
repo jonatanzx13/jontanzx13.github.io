@@ -1,0 +1,308 @@
+<html><head><base href="https://fotospromax.com/perfil">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Mi Perfil</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .profile-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 2em;
+    }
+    .profile-sidebar {
+        flex: 1;
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .profile-main {
+        flex: 3;
+    }
+    .profile-header {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        margin-bottom: 1.5em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .profile-content {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1em;
+    }
+    .profile-name {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    .profile-username {
+        color: #666;
+        margin-bottom: 1em;
+    }
+    .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1em;
+    }
+    .stat {
+        text-align: center;
+    }
+    .stat-value {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    .stat-label {
+        color: #666;
+    }
+    .edit-profile-btn {
+        width: 100%;
+        padding: 0.8em;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .edit-profile-btn:hover {
+        background-color: #45a049;
+    }
+    .tab-navigation {
+        display: flex;
+        margin-bottom: 1em;
+    }
+    .tab-button {
+        flex: 1;
+        padding: 1em;
+        background-color: #f1f1f1;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .tab-button.active {
+        background-color: white;
+        font-weight: bold;
+    }
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .photo-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover img {
+        transform: scale(1.05);
+    }
+    .photo-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 0.5em;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover .photo-overlay {
+        transform: translateY(0);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="profile-container">
+                <aside class="profile-sidebar">
+                    <img src="https://picsum.photos/200" alt="Foto de perfil" class="profile-picture">
+                    <h1 class="profile-name">Ana García</h1>
+                    <p class="profile-username">@anagarcia</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value">1,234</div>
+                            <div class="stat-label">Fotos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">5,678</div>
+                            <div class="stat-label">Seguidores</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">567</div>
+                            <div class="stat-label">Siguiendo</div>
+                        </div>
+                    </div>
+                    <button class="edit-profile-btn">Editar Perfil</button>
+                </aside>
+                <div class="profile-main">
+                    <div class="profile-header">
+                        <h2>Sobre mí</h2>
+                        <p>Fotógrafa profesional apasionada por capturar momentos únicos. Amante de la naturaleza y los viajes.</p>
+                    </div>
+                    <div class="profile-content">
+                        <div class="tab-navigation">
+                            <button class="tab-button active" data-tab="photos">Fotos</button>
+                            <button class="tab-button" data-tab="albums">Álbumes</button>
+                            <button class="tab-button" data-tab="favorites">Favoritos</button>
+                        </div>
+                        <div id="photos" class="tab-content active">
+                            <div class="photo-grid">
+                                <div class="photo-item">
+                                    <img src="https://picsum.photos/300/300?random=1" alt="Foto 1">
+                                    <div class="photo-overlay">Atardecer en la playa</div>
+                                </div>
+                                <div class="photo-item">
+                                    <img src="https://picsum.photos/300/300?random=2" alt="Foto 2">
+                                    <div class="photo-overlay">Montañas nevadas</div>
+                                </div>
+                                <div class="photo-item">
+                                    <img src="https://picsum.photos/300/300?random=3" alt="Foto 3">
+                                    <div class="photo-overlay">Ciudad de noche</div>
+                                </div>
+                                <div class="photo-item">
+                                    <img src="https://picsum.photos/300/300?random=4" alt="Foto 4">
+                                    <div class="photo-overlay">Flores en primavera</div>
+                                </div>
+                                <div class="photo-item">
+                                    <img src="https://picsum.photos/300/300?random=5" alt="Foto 5">
+                                    <div class="photo-overlay">Retrato en blanco y negro</div>
+                                </div>
+                                <div class="photo-item">
+                                    <img src="https://picsum.photos/300/300?random=6" alt="Foto 6">
+                                    <div class="photo-overlay">Bosque en otoño</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="albums" class="tab-content">
+                            <h3>Mis Álbumes</h3>
+                            <p>Aquí se mostrarán los álbumes del usuario.</p>
+                        </div>
+                        <div id="favorites" class="tab-content">
+                            <h3>Mis Favoritos</h3>
+                            <p>Aquí se mostrarán las fotos favoritas del usuario.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Edit Profile Button Functionality (for demonstration)
+        const editProfileBtn = document.querySelector('.edit-profile-btn');
+        editProfileBtn.addEventListener('click', () => {
+            alert('Funcionalidad de edición de perfil aún no implementada.');
+        });
+    </script>
+</body>
+</html>

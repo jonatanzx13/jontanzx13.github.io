@@ -1,0 +1,213 @@
+<html><head><base href="/dashboard/buscar/dashboard"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Panel de Control</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a73e8;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    nav {
+        display: flex;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+    nav a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2em;
+    }
+    .dashboard-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .dashboard-card h2 {
+        color: #1a73e8;
+        margin-top: 0;
+    }
+    .stat {
+        font-size: 2em;
+        font-weight: bold;
+        margin: 0.5em 0;
+    }
+    .chart-container {
+        width: 100%;
+        height: 200px;
+    }
+    footer {
+        background-color: #1a73e8;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    .upload-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+    }
+    .upload-btn:hover {
+        background-color: #185abc;
+    }
+    .recent-photos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 0.5em;
+        margin-top: 1em;
+    }
+    .recent-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <a href="/dashboard/buscar">Buscar</a>
+                <a href="/dashboard/albums">Álbumes</a>
+                <a href="/dashboard/perfil">Mi Perfil</a>
+            </nav>
+        </header>
+        <main>
+            <div class="dashboard-card">
+                <h2>Resumen</h2>
+                <p>Fotos subidas: <span class="stat">324</span></p>
+                <p>Álbumes creados: <span class="stat">12</span></p>
+                <p>Espacio utilizado: <span class="stat">2.4 GB</span></p>
+                <button class="upload-btn" onclick="alert('Función de subida en desarrollo')">Subir Nueva Foto</button>
+            </div>
+            <div class="dashboard-card">
+                <h2>Actividad Reciente</h2>
+                <div class="recent-photos">
+                    <img src="https://picsum.photos/80/80?random=1" alt="Foto reciente 1" class="recent-photo">
+                    <img src="https://picsum.photos/80/80?random=2" alt="Foto reciente 2" class="recent-photo">
+                    <img src="https://picsum.photos/80/80?random=3" alt="Foto reciente 3" class="recent-photo">
+                    <img src="https://picsum.photos/80/80?random=4" alt="Foto reciente 4" class="recent-photo">
+                    <img src="https://picsum.photos/80/80?random=5" alt="Foto reciente 5" class="recent-photo">
+                    <img src="https://picsum.photos/80/80?random=6" alt="Foto reciente 6" class="recent-photo">
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Estadísticas de Uso</h2>
+                <div class="chart-container">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Tendencias de Etiquetas</h2>
+                <div class="chart-container">
+                    <canvas id="tagChart"></canvas>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Gráfico de uso
+        const usageCtx = document.getElementById('usageChart').getContext('2d');
+        new Chart(usageCtx, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Fotos subidas por mes',
+                    data: [65, 59, 80, 81, 56, 55],
+                    borderColor: '#1a73e8',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // Gráfico de etiquetas
+        const tagCtx = document.getElementById('tagChart').getContext('2d');
+        new Chart(tagCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Naturaleza', 'Retrato', 'Viajes', 'Comida', 'Mascotas'],
+                datasets: [{
+                    label: 'Uso de etiquetas',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

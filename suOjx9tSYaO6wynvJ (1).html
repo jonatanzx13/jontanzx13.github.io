@@ -1,0 +1,225 @@
+<html><head><base href="https://fotospromax.com/acerca">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Acerca de Nosotros</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .about-section {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2em;
+        margin-top: 2em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .about-section h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+    }
+    .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .about-text {
+        flex: 1;
+        min-width: 300px;
+    }
+    .about-image {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+    }
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .team-section {
+        margin-top: 2em;
+    }
+    .team-members {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2em;
+    }
+    .team-member {
+        background-color: white;
+        border-radius: 10px;
+        padding: 1em;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        width: 200px;
+    }
+    .team-member:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1em;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+        }
+        .about-image {
+            margin-top: 1em;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="about-section">
+            <h1>Acerca de Fotos Pro Max</h1>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Fotos Pro Max nació de la pasión por la fotografía y la tecnología. Fundada en 2020, nuestra misión es proporcionar a fotógrafos de todos los niveles las herramientas necesarias para capturar, editar y compartir sus mejores momentos.</p>
+                    <p>Con un equipo de expertos en fotografía y desarrollo de software, hemos creado una plataforma intuitiva y potente que se adapta a las necesidades de aficionados y profesionales por igual.</p>
+                    <p>En Fotos Pro Max, creemos que cada imagen cuenta una historia única. Nuestra plataforma está diseñada para ayudarte a contar esa historia de la mejor manera posible, con herramientas de edición avanzadas, almacenamiento seguro y opciones de compartir versátiles.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://source.unsplash.com/random/400x300?photography" alt="Equipo de Fotos Pro Max trabajando en la oficina" width="400" height="300">
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Nuestro Equipo</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait1" alt="Foto de María González, CEO" width="150" height="150">
+                    <h3>María González</h3>
+                    <p>CEO & Fundadora</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait2" alt="Foto de Carlos Rodríguez, CTO" width="150" height="150">
+                    <h3>Carlos Rodríguez</h3>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait3" alt="Foto de Ana Martínez, Directora de Diseño" width="150" height="150">
+                    <h3>Ana Martínez</h3>
+                    <p>Directora de Diseño</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait4" alt="Foto de Juan Pérez, Jefe de Desarrollo" width="150" height="150">
+                    <h3>Juan Pérez</h3>
+                    <p>Jefe de Desarrollo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animación de miembros del equipo
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.2)';
+            });
+            member.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

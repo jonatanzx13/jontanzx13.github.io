@@ -1,0 +1,278 @@
+<html><head><base href="https://fotospromax.com/precios">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Precios</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .pricing-section {
+        text-align: center;
+        padding: 2em 0;
+    }
+    .pricing-section h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+        margin-bottom: 1em;
+    }
+    .pricing-plans {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+    .plan {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2em;
+        width: 300px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .plan:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .plan h2 {
+        color: #1a237e;
+        font-size: 1.8em;
+        margin-bottom: 0.5em;
+    }
+    .plan .price {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #ffab40;
+        margin-bottom: 0.5em;
+    }
+    .plan ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em 0;
+    }
+    .plan ul li {
+        margin-bottom: 0.5em;
+    }
+    .plan .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #333;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .plan .cta-button:hover {
+        background-color: #ffd180;
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(255,171,64,0.3);
+    }
+    .popular {
+        position: relative;
+        overflow: hidden;
+    }
+    .popular::before {
+        content: "Popular";
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background-color: #ffab40;
+        color: #333;
+        padding: 5px 30px;
+        transform: rotate(45deg);
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    .free-plan {
+        background: linear-gradient(145deg, #4CAF50, #8BC34A);
+        color: white;
+    }
+    .free-plan h2, .free-plan .price {
+        color: white;
+    }
+    .free-plan .cta-button {
+        background-color: white;
+        color: #4CAF50;
+    }
+    .free-plan .cta-button:hover {
+        background-color: #E8F5E9;
+        color: #2E7D32;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @media (max-width: 768px) {
+        .pricing-plans {
+            flex-direction: column;
+            align-items: center;
+        }
+        .plan {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="pricing-section">
+            <h1>Nuestros Planes</h1>
+            <div class="pricing-plans">
+                <div class="plan free-plan">
+                    <h2>Plan Gratis</h2>
+                    <div class="price">¡Gratis para siempre!</div>
+                    <ul>
+                        <li>5 GB de almacenamiento</li>
+                        <li>Herramientas de edición básicas</li>
+                        <li>Compartir en redes sociales</li>
+                        <li>Soporte por correo electrónico</li>
+                    </ul>
+                    <a href="/registro?plan=gratis" class="cta-button">Empezar Gratis</a>
+                </div>
+                <div class="plan">
+                    <h2>Plan Básico</h2>
+                    <div class="price">$9.99/mes</div>
+                    <ul>
+                        <li>20 GB de almacenamiento</li>
+                        <li>Herramientas de edición avanzadas</li>
+                        <li>Compartir en redes sociales</li>
+                        <li>Soporte por correo electrónico</li>
+                    </ul>
+                    <a href="/registro?plan=basico" class="cta-button">Elegir Plan</a>
+                </div>
+                <div class="plan popular">
+                    <h2>Plan Pro</h2>
+                    <div class="price">$19.99/mes</div>
+                    <ul>
+                        <li>100 GB de almacenamiento</li>
+                        <li>Herramientas de edición profesionales</li>
+                        <li>Compartir en redes sociales</li>
+                        <li>Creación de portafolios</li>
+                        <li>Soporte prioritario</li>
+                    </ul>
+                    <a href="/registro?plan=pro" class="cta-button">Elegir Plan</a>
+                </div>
+                <div class="plan">
+                    <h2>Plan Ilimitado</h2>
+                    <div class="price">$29.99/mes</div>
+                    <ul>
+                        <li>Almacenamiento ilimitado</li>
+                        <li>Todas las herramientas de edición</li>
+                        <li>Compartir en redes sociales</li>
+                        <li>Creación de portafolios profesionales</li>
+                        <li>Soporte 24/7</li>
+                        <li>Acceso a cursos exclusivos</li>
+                    </ul>
+                    <a href="/registro?plan=ilimitado" class="cta-button">Elegir Plan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button, .cta-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+        });
+
+        // Animación de planes
+        const plans = document.querySelectorAll('.plan');
+        plans.forEach(plan => {
+            plan.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 12px 24px rgba(0,0,0,0.2)';
+            });
+            plan.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Inicio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background-image: url('https://source.unsplash.com/random/1200x400/?photography');
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .hero-content {
+        background-color: rgba(0,0,0,0.5);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .features {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+    }
+    .feature {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .feature:hover {
+        transform: translateY(-5px);
+    }
+    .feature img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+    .recent-photos {
+        margin-top: 40px;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .photo-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .photo-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover img {
+        transform: scale(1.1);
+    }
+    .photo-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.7);
+        color: white;
+        padding: 10px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover .photo-overlay {
+        transform: translateY(0);
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Captura, Comparte, Inspira</h1>
+            <p>Explora un mundo de fotografía excepcional o comparte tus propias obras maestras.</p>
+            <a href="/subir" class="cta-button">Sube tu foto ahora</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <img src="https://cdn-icons-png.flaticon.com/512/3004/3004613.png" alt="Icono de cámara">
+                <h3>Comparte tus mejores tomas</h3>
+                <p>Sube tus fotografías y muestra tu talento al mundo.</p>
+            </div>
+            <div class="feature">
+                <img src="https://cdn-icons-png.flaticon.com/512/3002/3002655.png" alt="Icono de moneda">
+                <h3>Monetiza tu pasión</h3>
+                <p>Vende tus fotos y gana dinero con tu creatividad.</p>
+            </div>
+            <div class="feature">
+                <img src="https://cdn-icons-png.flaticon.com/512/3002/3002787.png" alt="Icono de comunidad">
+                <h3>Únete a la comunidad</h3>
+                <p>Conecta con otros fotógrafos y amantes de la fotografía.</p>
+            </div>
+        </div>
+
+        <div class="recent-photos">
+            <h2>Fotos Recientes</h2>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/random/400x300/?nature" alt="Naturaleza">
+                    <div class="photo-overlay">
+                        <h4>Naturaleza Salvaje</h4>
+                        <p>por Juan Pérez</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/random/400x300/?city" alt="Ciudad">
+                    <div class="photo-overlay">
+                        <h4>Luces de la Ciudad</h4>
+                        <p>por María García</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/random/400x300/?portrait" alt="Retrato">
+                    <div class="photo-overlay">
+                        <h4>Mirada Profunda</h4>
+                        <p>por Carlos Rodríguez</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/random/400x300/?food" alt="Comida">
+                    <div class="photo-overlay">
+                        <h4>Delicias Culinarias</h4>
+                        <p>por Ana Martínez</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación suave para el scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Lazy loading para imágenes
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

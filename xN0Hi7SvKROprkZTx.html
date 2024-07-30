@@ -1,0 +1,341 @@
+<html><head><base href="https://fotospromax.com/albums">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Álbumes</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .albums-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .albums-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2em;
+    }
+    .create-album-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .create-album-btn:hover {
+        background-color: #45a049;
+    }
+    .albums-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2em;
+    }
+    .album-item {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .album-item:hover {
+        transform: translateY(-5px);
+    }
+    .album-cover {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+    .album-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .album-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .album-item:hover .album-overlay {
+        opacity: 1;
+    }
+    .view-album-btn {
+        background-color: white;
+        color: #333;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .view-album-btn:hover {
+        background-color: #f0f0f0;
+    }
+    .album-info {
+        padding: 1em;
+    }
+    .album-title {
+        margin: 0 0 0.5em;
+        font-size: 1.2em;
+    }
+    .album-meta {
+        font-size: 0.9em;
+        color: #666;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 500px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-form label {
+        display: block;
+        margin-top: 10px;
+    }
+    .modal-form input[type="text"],
+    .modal-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .modal-form button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .modal-form button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="albums-container">
+                <div class="albums-header">
+                    <h1>Mis Álbumes</h1>
+                    <button class="create-album-btn" id="createAlbumBtn">Crear Nuevo Álbum</button>
+                </div>
+                <div class="albums-grid" id="albumsGrid">
+                    <!-- Album items will be dynamically added here -->
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Modal for creating a new album -->
+    <div id="newAlbumModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Crear Nuevo Álbum</h2>
+            <form class="modal-form" id="newAlbumForm">
+                <label for="albumTitle">Título del Álbum:</label>
+                <input type="text" id="albumTitle" name="albumTitle" required>
+                
+                <label for="albumDescription">Descripción:</label>
+                <textarea id="albumDescription" name="albumDescription" rows="4"></textarea>
+                
+                <button type="submit">Crear Álbum</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sample album data
+        const albums = [
+            { id: 1, title: "Viaje a París", photoCount: 42, coverImage: "https://picsum.photos/300/200?random=1" },
+            { id: 2, title: "Verano 2022", photoCount: 78, coverImage: "https://picsum.photos/300/200?random=2" },
+            { id: 3, title: "Mascotas", photoCount: 23, coverImage: "https://picsum.photos/300/200?random=3" },
+            { id: 4, title: "Naturaleza", photoCount: 56, coverImage: "https://picsum.photos/300/200?random=4" },
+            { id: 5, title: "Arquitectura", photoCount: 31, coverImage: "https://picsum.photos/300/200?random=5" },
+            { id: 6, title: "Comida", photoCount: 19, coverImage: "https://picsum.photos/300/200?random=6" }
+        ];
+
+        const albumsGrid = document.getElementById('albumsGrid');
+        const modal = document.getElementById('newAlbumModal');
+        const createAlbumBtn = document.getElementById('createAlbumBtn');
+        const closeModalBtn = document.getElementsByClassName('close')[0];
+        const newAlbumForm = document.getElementById('newAlbumForm');
+
+        // Function to create album items
+        function createAlbumItem(album) {
+            const albumItem = document.createElement('div');
+            albumItem.className = 'album-item';
+            albumItem.innerHTML = `
+                <div class="album-cover">
+                    <img src="${album.coverImage}" alt="${album.title}">
+                    <div class="album-overlay">
+                        <button class="view-album-btn">Ver Álbum</button>
+                    </div>
+                </div>
+                <div class="album-info">
+                    <h3 class="album-title">${album.title}</h3>
+                    <p class="album-meta">${album.photoCount} fotos</p>
+                </div>
+            `;
+            return albumItem;
+        }
+
+        // Populate albums grid
+        albums.forEach(album => {
+            albumsGrid.appendChild(createAlbumItem(album));
+        });
+
+        // Modal functionality
+        createAlbumBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeModalBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        newAlbumForm.onsubmit = function(e) {
+            e.preventDefault();
+            const title = document.getElementById('albumTitle').value;
+            const description = document.getElementById('albumDescription').value;
+            // Here you would typically send this data to your server
+            console.log("New album:", { title, description });
+            
+            // For demonstration, we'll add a new album to the grid
+            const newAlbum = {
+                id: albums.length + 1,
+                title: title,
+                photoCount: 0,
+                coverImage: `https://picsum.photos/300/200?random=${Math.random()}`
+            };
+            albumsGrid.appendChild(createAlbumItem(newAlbum));
+            
+            modal.style.display = "none";
+            newAlbumForm.reset();
+        }
+
+        // Add click event to view album buttons
+        albumsGrid.addEventListener('click', function(e) {
+            if (e.target.classList.contains('view-album-btn')) {
+                const albumTitle = e.target.closest('.album-item').querySelector('.album-title').textContent;
+                alert(`Visualizando el álbum: ${albumTitle}`);
+                // Here you would typically navigate to the album's page
+            }
+        });
+    </script>
+</body>
+</html>

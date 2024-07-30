@@ -1,0 +1,245 @@
+<html><head><base href="https://fotospromax.com/contacto">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Contacto</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .contact-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2em;
+    }
+    .contact-form {
+        flex: 1;
+        background-color: white;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .contact-info {
+        flex: 1;
+        margin-left: 2em;
+    }
+    h1 {
+        color: #1a237e;
+        margin-bottom: 1em;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        color: #3f51b5;
+    }
+    input, textarea {
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+    }
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    button {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        background-color: #ffab40;
+        color: #1a237e;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        background-color: #ffd180;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .contact-method {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+    .contact-method i {
+        font-size: 1.5em;
+        margin-right: 0.5em;
+        color: #3f51b5;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/precios">Precios</a></li>
+                <li><a href="/acerca">Acerca de</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Contáctanos</h1>
+        <div class="contact-content">
+            <div class="contact-form">
+                <form method="GET" action="/enviar-contacto">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="asunto">Asunto:</label>
+                    <input type="text" id="asunto" name="asunto" required>
+
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h2>Información de Contacto</h2>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Calle Imaginaria 123, Ciudad Creativa, 28001</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <p>+34 912 345 678</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@fotospromax.com</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <p>Lunes a Viernes: 9:00 - 18:00</p>
+                </div>
+                <div class="social-media">
+                    <h3>Síguenos en redes sociales</h3>
+                    <a href="https://facebook.com/fotospromax" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/fotospromax" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/fotospromax" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('nav ul li a, button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Validación del formulario
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const asunto = document.getElementById('asunto').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            if (nombre && email && asunto && mensaje) {
+                alert('Mensaje enviado con éxito. Gracias por contactarnos!');
+                form.reset();
+            } else {
+                alert('Por favor, completa todos los campos del formulario.');
+            }
+        });
+
+        // Efecto hover para los iconos de redes sociales
+        const socialIcons = document.querySelectorAll('.social-media a');
+        socialIcons.forEach(icon => {
+            icon.addEventListener('mouseover', function() {
+                this.style.color = '#ffab40';
+                this.style.transform = 'translateY(-3px)';
+            });
+            icon.addEventListener('mouseout', function() {
+                this.style.color = '';
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

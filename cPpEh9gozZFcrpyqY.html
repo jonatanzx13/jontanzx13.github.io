@@ -1,0 +1,242 @@
+<html><head><base href="https://fotospromax.com/subir">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Subir Foto</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .upload-form {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-top: 20px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"], textarea, select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    textarea {
+        height: 100px;
+        resize: vertical;
+    }
+    .file-input-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    .file-input-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+    .file-input-wrapper .btn-file-input {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .preview-image {
+        max-width: 100%;
+        max-height: 300px;
+        margin-top: 10px;
+        display: none;
+    }
+    .submit-btn {
+        background-color: #1a237e;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .submit-btn:hover {
+        background-color: #283593;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Subir Nueva Foto</h1>
+        <form class="upload-form" id="upload-form">
+            <div class="form-group">
+                <label for="title">Título de la foto:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Categoría:</label>
+                <select id="category" name="category">
+                    <option value="paisajes">Paisajes</option>
+                    <option value="retratos">Retratos</option>
+                    <option value="naturaleza">Naturaleza</option>
+                    <option value="arquitectura">Arquitectura</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Etiquetas (separadas por comas):</label>
+                <input type="text" id="tags" name="tags">
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Seleccionar foto:</label>
+                <div class="file-input-wrapper">
+                    <button class="btn-file-input">Elegir archivo</button>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                </div>
+                <img id="preview" class="preview-image" src="#" alt="Vista previa de la imagen">
+            </div>
+
+            <button type="submit" class="submit-btn">Subir Foto</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Preview de la imagen
+        const photoInput = document.getElementById('photo');
+        const previewImage = document.getElementById('preview');
+
+        photoInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Manejo del formulario
+        const uploadForm = document.getElementById('upload-form');
+        uploadForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Aquí iría la lógica para enviar los datos al servidor
+            // Por ahora, solo mostraremos un mensaje de éxito
+            alert('¡Foto subida con éxito!');
+            
+            // Resetear el formulario
+            uploadForm.reset();
+            previewImage.src = '#';
+            previewImage.style.display = 'none';
+        });
+
+        // Mejora de la experiencia de usuario para el input de archivo
+        const fileInputWrapper = document.querySelector('.file-input-wrapper');
+        const fileInput = fileInputWrapper.querySelector('input[type=file]');
+        const fileInputButton = fileInputWrapper.querySelector('.btn-file-input');
+
+        fileInputButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                fileInputButton.textContent = fileInput.files[0].name;
+            } else {
+                fileInputButton.textContent = 'Elegir archivo';
+            }
+        });
+    </script>
+</body>
+</html>

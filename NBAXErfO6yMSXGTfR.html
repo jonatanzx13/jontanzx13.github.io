@@ -1,0 +1,225 @@
+<html><head><base href="/dashboard/buscar/dashboard/buscar"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Búsqueda Avanzada</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a73e8;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    nav {
+        display: flex;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+    nav a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .search-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2em;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 2em;
+    }
+    h1 {
+        color: #1a73e8;
+        margin-top: 0;
+    }
+    .search-form {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 0.5em;
+        font-weight: bold;
+    }
+    input, select {
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+    }
+    button {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #185abc;
+    }
+    .results-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 1em;
+    }
+    .photo-info h3 {
+        margin: 0;
+        font-size: 1em;
+    }
+    .photo-info p {
+        margin: 0.5em 0 0;
+        font-size: 0.9em;
+        color: #666;
+    }
+    footer {
+        background-color: #1a73e8;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <a href="/dashboard">Panel</a>
+                <a href="/dashboard/albums">Álbumes</a>
+                <a href="/dashboard/perfil">Mi Perfil</a>
+            </nav>
+        </header>
+        <main>
+            <div class="search-container">
+                <h1>Búsqueda Avanzada</h1>
+                <form class="search-form" id="searchForm">
+                    <div class="form-group">
+                        <label for="keyword">Palabra clave:</label>
+                        <input type="text" id="keyword" name="keyword" placeholder="Ej: playa, montaña, retrato">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Fecha:</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="album">Álbum:</label>
+                        <select id="album" name="album">
+                            <option value="">Todos los álbumes</option>
+                            <option value="vacaciones">Vacaciones</option>
+                            <option value="familiar">Familiar</option>
+                            <option value="trabajo">Trabajo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="camera">Cámara:</label>
+                        <select id="camera" name="camera">
+                            <option value="">Todas las cámaras</option>
+                            <option value="canon">Canon</option>
+                            <option value="nikon">Nikon</option>
+                            <option value="sony">Sony</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="results-container" id="resultsContainer">
+                <!-- Los resultados de la búsqueda se mostrarán aquí -->
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const searchForm = document.getElementById('searchForm');
+        const resultsContainer = document.getElementById('resultsContainer');
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(searchForm);
+            const searchParams = new URLSearchParams(formData);
+            
+            // Simular una búsqueda y mostrar resultados
+            const results = [
+                { title: 'Playa al atardecer', date: '2023-05-15', album: 'Vacaciones', camera: 'Canon', url: 'https://picsum.photos/id/100/300/200' },
+                { title: 'Montañas nevadas', date: '2023-02-20', album: 'Viajes', camera: 'Nikon', url: 'https://picsum.photos/id/110/300/200' },
+                { title: 'Retrato familiar', date: '2023-04-01', album: 'Familiar', camera: 'Sony', url: 'https://picsum.photos/id/120/300/200' },
+                { title: 'Ciudad nocturna', date: '2023-03-10', album: 'Urbano', camera: 'Canon', url: 'https://picsum.photos/id/130/300/200' },
+                { title: 'Flores silvestres', date: '2023-06-05', album: 'Naturaleza', camera: 'Nikon', url: 'https://picsum.photos/id/140/300/200' },
+                { title: 'Arquitectura moderna', date: '2023-01-25', album: 'Trabajo', camera: 'Sony', url: 'https://picsum.photos/id/150/300/200' },
+            ];
+
+            resultsContainer.innerHTML = '';
+            results.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.className = 'photo-card';
+                photoCard.innerHTML = `
+                    <img src="${photo.url}" alt="${photo.title}">
+                    <div class="photo-info">
+                        <h3>${photo.title}</h3>
+                        <p>Fecha: ${photo.date}</p>
+                        <p>Álbum: ${photo.album}</p>
+                        <p>Cámara: ${photo.camera}</p>
+                    </div>
+                `;
+                resultsContainer.appendChild(photoCard);
+            });
+        });
+    </script>
+</body>
+</html>

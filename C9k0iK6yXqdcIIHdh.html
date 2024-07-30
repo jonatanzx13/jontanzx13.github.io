@@ -1,0 +1,266 @@
+<html><head><base href="https://fotospromax.com/configuracion">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuración - Fotos Pro Max</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    .user-menu {
+        position: relative;
+        display: inline-block;
+    }
+    .user-btn {
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease;
+    }
+    .user-btn:hover {
+        background-color: #303f9f;
+    }
+    .user-icon {
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        display: flex;
+        padding: 2em;
+    }
+    .sidebar {
+        width: 200px;
+        background-color: #3f51b5;
+        color: white;
+        padding: 1em;
+        border-radius: 8px;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .sidebar ul li {
+        margin-bottom: 1em;
+    }
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .sidebar ul li a:hover {
+        color: #ffab40;
+    }
+    .content {
+        flex: 1;
+        margin-left: 2em;
+    }
+    .settings-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5em;
+        margin-bottom: 1.5em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+        color: #1a237e;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-top: 1em;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        padding: 0.5em;
+        margin-top: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+    }
+    button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 1em;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="user-menu">
+                <button class="user-btn">
+                    <div class="user-icon"></div>
+                    Mi Cuenta
+                </button>
+            </div>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#perfil">Perfil</a></li>
+                    <li><a href="#seguridad">Seguridad</a></li>
+                    <li><a href="#notificaciones">Notificaciones</a></li>
+                    <li><a href="#privacidad">Privacidad</a></li>
+                </ul>
+            </aside>
+            <div class="content">
+                <section id="perfil" class="settings-card">
+                    <h1>Configuración de Perfil</h1>
+                    <form>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" value="Usuario Ejemplo">
+                        
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" value="usuario@ejemplo.com">
+                        
+                        <label for="bio">Biografía:</label>
+                        <textarea id="bio" name="bio" rows="4">Amante de la fotografía y la naturaleza.</textarea>
+                        
+                        <button type="submit">Guardar cambios</button>
+                    </form>
+                </section>
+                
+                <section id="seguridad" class="settings-card">
+                    <h2>Seguridad</h2>
+                    <form>
+                        <label for="password">Nueva contraseña:</label>
+                        <input type="password" id="password" name="password">
+                        
+                        <label for="confirm-password">Confirmar nueva contraseña:</label>
+                        <input type="password" id="confirm-password" name="confirm-password">
+                        
+                        <button type="submit">Cambiar contraseña</button>
+                    </form>
+                </section>
+                
+                <section id="notificaciones" class="settings-card">
+                    <h2>Notificaciones</h2>
+                    <form>
+                        <label>
+                            <input type="checkbox" name="email-notif" checked> Recibir notificaciones por correo electrónico
+                        </label>
+                        <label>
+                            <input type="checkbox" name="push-notif"> Recibir notificaciones push
+                        </label>
+                        <button type="submit">Guardar preferencias</button>
+                    </form>
+                </section>
+                
+                <section id="privacidad" class="settings-card">
+                    <h2>Privacidad</h2>
+                    <form>
+                        <label for="perfil-privacidad">Visibilidad del perfil:</label>
+                        <select id="perfil-privacidad" name="perfil-privacidad">
+                            <option value="publico">Público</option>
+                            <option value="amigos">Solo amigos</option>
+                            <option value="privado">Privado</option>
+                        </select>
+                        
+                        <label>
+                            <input type="checkbox" name="mostrar-ubicacion"> Mostrar ubicación en las fotos
+                        </label>
+                        
+                        <button type="submit">Guardar configuración</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Cambios guardados con éxito');
+            });
+        });
+    </script>
+</body>
+</html>

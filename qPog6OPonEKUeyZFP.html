@@ -1,0 +1,273 @@
+<html><head><base href="https://fotospromax.com/acerca">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Acerca de Nosotros</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .about-section {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2em;
+        margin-top: 2em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .about-section h1 {
+        color: #1a237e;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+    .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .about-text {
+        flex: 1;
+        min-width: 300px;
+        margin-right: 2em;
+    }
+    .about-image {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+    }
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .team-section {
+        margin-top: 2em;
+    }
+    .team-section h2 {
+        color: #1a237e;
+        font-size: 2em;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2em;
+    }
+    .team-member {
+        text-align: center;
+        background-color: #fff;
+        padding: 1em;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .team-member:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1em;
+    }
+    .team-member h3 {
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    .team-member p {
+        color: #666;
+        font-style: italic;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+        }
+        .about-text,
+        .about-image {
+            margin-right: 0;
+            margin-bottom: 2em;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="about-section">
+            <h1>Acerca de Fotos Pro Max</h1>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Fotos Pro Max nació en 2010 de la pasión por la fotografía y el deseo de ofrecer servicios de alta calidad a precios accesibles. Desde entonces, hemos crecido hasta convertirnos en uno de los estudios fotográficos más reconocidos de la región.</p>
+                    <p>Nuestra misión es capturar momentos especiales y transformarlos en recuerdos duraderos. Ya sea una boda, un evento corporativo o una sesión de retratos, nos esforzamos por superar las expectativas de nuestros clientes en cada proyecto.</p>
+                    <p>En Fotos Pro Max, creemos en la innovación constante. Utilizamos las últimas tecnologías y técnicas fotográficas para garantizar resultados excepcionales. Además, nuestro equipo de profesionales altamente capacitados está dedicado a brindar un servicio personalizado y atención al detalle en cada trabajo.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://source.unsplash.com/random/600x400?photography-studio" alt="Estudio fotográfico moderno con equipo profesional" width="600" height="400">
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Nuestro Equipo</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait-woman" alt="Retrato de Ana García, fotógrafa principal" width="150" height="150">
+                    <h3>Ana García</h3>
+                    <p>Fotógrafa Principal</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait-man" alt="Retrato de Carlos Rodríguez, especialista en iluminación" width="150" height="150">
+                    <h3>Carlos Rodríguez</h3>
+                    <p>Especialista en Iluminación</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait-woman-2" alt="Retrato de Laura Martínez, editora de fotos" width="150" height="150">
+                    <h3>Laura Martínez</h3>
+                    <p>Editora de Fotos</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/random/150x150?portrait-man-2" alt="Retrato de David Sánchez, videógrafo" width="150" height="150">
+                    <h3>David Sánchez</h3>
+                    <p>Videógrafo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animación de miembros del equipo
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.2)';
+            });
+            member.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Efecto de aparición gradual para las secciones
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScroll() {
+            const sections = document.querySelectorAll('.about-section, .team-section');
+            sections.forEach(section => {
+                if (isElementInViewport(section)) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+
+        // Aplicar estilos iniciales para la animación de aparición
+        const sections = document.querySelectorAll('.about-section, .team-section');
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+    </script>
+</body>
+</html>

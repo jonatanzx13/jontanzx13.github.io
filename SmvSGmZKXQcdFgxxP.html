@@ -1,0 +1,277 @@
+<html><head><base href="https://fotospromax.com/galeria">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería - Fotos Pro Max</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        padding: 20px;
+    }
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    .gallery-item .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.7);
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+    }
+    .gallery-item:hover .overlay {
+        height: 100%;
+    }
+    .overlay-content {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+    }
+    .filter-buttons {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .filter-button {
+        background-color: #3f51b5;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+    .filter-button:hover {
+        background-color: #1a237e;
+        color: #ffab40;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Galería de Fotos</h1>
+        <div class="filter-buttons">
+            <button class="filter-button" data-filter="all">Todas</button>
+            <button class="filter-button" data-filter="naturaleza">Naturaleza</button>
+            <button class="filter-button" data-filter="ciudad">Ciudad</button>
+            <button class="filter-button" data-filter="personas">Personas</button>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item" data-category="naturaleza">
+                <img src="https://picsum.photos/id/1015/300/300" alt="Montañas y lago">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h3>Montañas y lago</h3>
+                        <p>Una vista impresionante de la naturaleza</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="ciudad">
+                <img src="https://picsum.photos/id/1067/300/300" alt="Ciudad de noche">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h3>Ciudad de noche</h3>
+                        <p>Luces brillantes en la gran ciudad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="personas">
+                <img src="https://picsum.photos/id/1025/300/300" alt="Retrato de persona">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h3>Retrato</h3>
+                        <p>Una mirada cautivadora</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="naturaleza">
+                <img src="https://picsum.photos/id/1043/300/300" alt="Playa tropical">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h3>Playa tropical</h3>
+                        <p>Paraíso en la tierra</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="ciudad">
+                <img src="https://picsum.photos/id/1071/300/300" alt="Arquitectura moderna">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h3>Arquitectura moderna</h3>
+                        <p>Diseño urbano innovador</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="personas">
+                <img src="https://picsum.photos/id/1027/300/300" alt="Niña sonriendo">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <h3>Sonrisa inocente</h3>
+                        <p>La alegría de la juventud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button, .filter-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Filtrado de galería
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lazy loading de imágenes
+        const images = document.querySelectorAll('.gallery-item img');
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        }
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.src; // Trigger image load
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, options);
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    </script>
+</body>
+</html>

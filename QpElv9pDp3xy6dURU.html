@@ -1,0 +1,283 @@
+<html><head><base href="https://fotospromax.com/buscar">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buscar - Fotos Pro Max</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    .user-menu {
+        position: relative;
+        display: inline-block;
+    }
+    .user-btn {
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease;
+    }
+    .user-btn:hover {
+        background-color: #303f9f;
+    }
+    .user-icon {
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .search-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    .search-bar {
+        width: 60%;
+        padding: 0.8em;
+        font-size: 1em;
+        border: 2px solid #3f51b5;
+        border-radius: 25px 0 0 25px;
+        outline: none;
+    }
+    .search-btn {
+        background-color: #3f51b5;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        border-radius: 0 25px 25px 0;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    .search-btn:hover {
+        background-color: #1a237e;
+    }
+    .filters {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    .filter-btn {
+        background-color: #f0f2f5;
+        border: 1px solid #3f51b5;
+        color: #3f51b5;
+        padding: 0.5em 1em;
+        margin: 0 0.5em;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+        background-color: #3f51b5;
+        color: white;
+    }
+    .results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 1em;
+    }
+    .photo-title {
+        margin: 0;
+        font-size: 1.1em;
+        color: #1a237e;
+    }
+    .photo-author {
+        margin: 0.5em 0;
+        color: #666;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="user-menu">
+                <button class="user-btn">
+                    <div class="user-icon"></div>
+                    Mi Cuenta
+                </button>
+            </div>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Buscar fotos, álbumes o usuarios...">
+                <button class="search-btn">Buscar</button>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active">Todas</button>
+                <button class="filter-btn">Personas</button>
+                <button class="filter-btn">Naturaleza</button>
+                <button class="filter-btn">Ciudades</button>
+                <button class="filter-btn">Animales</button>
+            </div>
+            <div class="results">
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=1" alt="Foto de paisaje montañoso">
+                    <div class="photo-info">
+                        <h3 class="photo-title">Montañas al atardecer</h3>
+                        <p class="photo-author">por Juan Pérez</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=2" alt="Retrato de una mujer sonriente">
+                    <div class="photo-info">
+                        <h3 class="photo-title">Sonrisa radiante</h3>
+                        <p class="photo-author">por María García</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=3" alt="Ciudad nocturna iluminada">
+                    <div class="photo-info">
+                        <h3 class="photo-title">Luces de la ciudad</h3>
+                        <p class="photo-author">por Carlos Rodríguez</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=4" alt="León descansando en la sabana">
+                    <div class="photo-info">
+                        <h3 class="photo-title">Rey de la sabana</h3>
+                        <p class="photo-author">por Ana Martínez</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=5" alt="Playa tropical al amanecer">
+                    <div class="photo-info">
+                        <h3 class="photo-title">Amanecer en el paraíso</h3>
+                        <p class="photo-author">por Luis Sánchez</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=6" alt="Arquitectura moderna">
+                    <div class="photo-info">
+                        <h3 class="photo-title">Líneas y curvas</h3>
+                        <p class="photo-author">por Elena Torres</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const searchBtn = document.querySelector('.search-btn');
+        const searchBar = document.querySelector('.search-bar');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        searchBtn.addEventListener('click', function() {
+            const searchTerm = searchBar.value;
+            alert(`Buscando: ${searchTerm}`);
+            // Aquí iría la lógica de búsqueda real
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                alert(`Filtro aplicado: ${this.textContent}`);
+                // Aquí iría la lógica de filtrado real
+            });
+        });
+
+        // Efecto de hover para las tarjetas de fotos
+        const photoCards = document.querySelectorAll('.photo-card');
+        photoCards.forEach(card => {
+            card.addEventListener('mouseover', function() {
+                this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            });
+            card.addEventListener('mouseout', function() {
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

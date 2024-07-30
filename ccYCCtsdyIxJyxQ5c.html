@@ -1,0 +1,214 @@
+<html><head><base href="https://fotospromax.com/subir">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Subir Foto</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    h1 {
+        color: #1a237e;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .upload-form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    textarea {
+        height: 100px;
+        resize: vertical;
+    }
+    .file-input-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    .file-input-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+    .file-input-wrapper .btn-file-input {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .file-input-wrapper:hover .btn-file-input {
+        background-color: #45a049;
+    }
+    .submit-btn {
+        background-color: #1a237e;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+    }
+    .submit-btn:hover {
+        background-color: #283593;
+    }
+    #imagePreview {
+        max-width: 100%;
+        margin-top: 20px;
+        display: none;
+        border-radius: 4px;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Subir Nueva Foto</h1>
+        <form class="upload-form" id="uploadForm">
+            <div class="form-group">
+                <label for="photoTitle">Título de la Foto:</label>
+                <input type="text" id="photoTitle" name="photoTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="photoDescription">Descripción:</label>
+                <textarea id="photoDescription" name="photoDescription" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photoPrice">Precio ($):</label>
+                <input type="number" id="photoPrice" name="photoPrice" min="0" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="photoFile">Seleccionar Foto:</label>
+                <div class="file-input-wrapper">
+                    <button class="btn-file-input" type="button">Elegir archivo</button>
+                    <input type="file" id="photoFile" name="photoFile" accept="image/*" required>
+                </div>
+            </div>
+            <img id="imagePreview" src="" alt="Vista previa de la imagen">
+            <button type="submit" class="submit-btn">Publicar Foto</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('photoFile').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById('imagePreview');
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('photoTitle').value;
+            const description = document.getElementById('photoDescription').value;
+            const price = document.getElementById('photoPrice').value;
+            const file = document.getElementById('photoFile').files[0];
+
+            if (title && description && price && file) {
+                // Aquí iría la lógica para enviar la foto al servidor
+                alert('¡Foto publicada con éxito!');
+                // Resetear el formulario
+                this.reset();
+                document.getElementById('imagePreview').style.display = 'none';
+            } else {
+                alert('Por favor, completa todos los campos y selecciona una imagen.');
+            }
+        });
+    </script>
+</body>
+</html>

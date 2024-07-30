@@ -1,0 +1,246 @@
+<html><head><base href="https://fotospromax.com/perfil">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Mi Perfil</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+    }
+    .profile-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .profile-header {
+        background-color: #3f51b5;
+        color: white;
+        padding: 2em;
+        display: flex;
+        align-items: center;
+    }
+    .profile-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid white;
+        margin-right: 2em;
+    }
+    .profile-info h1 {
+        margin: 0;
+        font-size: 2em;
+    }
+    .profile-info p {
+        margin: 0.5em 0;
+        font-size: 1.1em;
+    }
+    .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+        background-color: #e8eaf6;
+    }
+    .stat-item {
+        text-align: center;
+    }
+    .stat-value {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #3f51b5;
+    }
+    .stat-label {
+        font-size: 0.9em;
+        color: #666;
+    }
+    .profile-content {
+        padding: 2em;
+    }
+    .content-section {
+        margin-bottom: 2em;
+    }
+    .content-section h2 {
+        border-bottom: 2px solid #3f51b5;
+        padding-bottom: 0.5em;
+        margin-bottom: 1em;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .photo-item:hover {
+        transform: scale(1.05);
+    }
+    .photo-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .edit-profile-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 1em;
+    }
+    .edit-profile-btn:hover {
+        background-color: #45a049;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="https://picsum.photos/200?random=1" alt="Foto de perfil" class="profile-avatar">
+                    <div class="profile-info">
+                        <h1>Ana García</h1>
+                        <p>Fotógrafa aficionada | Amante de la naturaleza</p>
+                        <p>Madrid, España</p>
+                        <button class="edit-profile-btn">Editar Perfil</button>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">1,234</div>
+                        <div class="stat-label">Fotos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">56</div>
+                        <div class="stat-label">Álbumes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5,678</div>
+                        <div class="stat-label">Seguidores</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">789</div>
+                        <div class="stat-label">Siguiendo</div>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <section class="content-section">
+                        <h2>Mis Últimas Fotos</h2>
+                        <div class="photo-grid">
+                            <div class="photo-item"><img src="https://picsum.photos/300/300?random=2" alt="Foto 1"></div>
+                            <div class="photo-item"><img src="https://picsum.photos/300/300?random=3" alt="Foto 2"></div>
+                            <div class="photo-item"><img src="https://picsum.photos/300/300?random=4" alt="Foto 3"></div>
+                            <div class="photo-item"><img src="https://picsum.photos/300/300?random=5" alt="Foto 4"></div>
+                            <div class="photo-item"><img src="https://picsum.photos/300/300?random=6" alt="Foto 5"></div>
+                            <div class="photo-item"><img src="https://picsum.photos/300/300?random=7" alt="Foto 6"></div>
+                        </div>
+                    </section>
+                    <section class="content-section">
+                        <h2>Sobre Mí</h2>
+                        <p>Hola, soy Ana García, una apasionada fotógrafa aficionada con un amor especial por capturar la belleza de la naturaleza. Vivo en Madrid, pero siempre estoy buscando nuevas aventuras y paisajes impresionantes para fotografiar. Me encanta compartir mi visión del mundo a través de mis fotos y conectar con otros entusiastas de la fotografía.</p>
+                        <p>Cuando no estoy detrás de la cámara, me puedes encontrar explorando nuevos senderos, leyendo sobre técnicas fotográficas o experimentando con edición de imágenes. ¡Siempre estoy abierta a colaboraciones y a aprender de otros fotógrafos!</p>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('.edit-profile-btn').addEventListener('click', function() {
+            alert('Funcionalidad de edición de perfil en desarrollo. ¡Próximamente podrás personalizar tu perfil!');
+        });
+
+        // Simulate loading more photos when scrolling
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+                const photoGrid = document.querySelector('.photo-grid');
+                for (let i = 0; i < 3; i++) {
+                    const newPhoto = document.createElement('div');
+                    newPhoto.className = 'photo-item';
+                    newPhoto.innerHTML = `<img src="https://picsum.photos/300/300?random=${Math.random()}" alt="Nueva foto">`;
+                    photoGrid.appendChild(newPhoto);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

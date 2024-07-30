@@ -1,0 +1,348 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Inicio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1015/1200/400');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        margin-bottom: 40px;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+    }
+    .recent-photos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+    }
+    .photo-price {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(26, 35, 126, 0.8);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+    .publish-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .publish-button:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .form-group input[type="file"] {
+        display: none;
+    }
+    .file-upload-btn {
+        display: inline-block;
+        padding: 8px 12px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .submit-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Captura, Comparte, Inspira</h1>
+        <p>Únete a nuestra comunidad de fotógrafos apasionados y comparte tus mejores momentos con el mundo.</p>
+        <a href="/registro" class="cta-button">Únete Ahora</a>
+    </div>
+
+    <div class="container">
+        <h2>Fotos Recientes</h2>
+        <div class="recent-photos" id="recentPhotos">
+            <!-- Las fotos recientes se generarán dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <button class="publish-button" onclick="openPublishModal()">Publicar Foto</button>
+
+    <div id="publishModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePublishModal()">&times;</span>
+            <h2>Publicar Nueva Foto</h2>
+            <form id="publishForm">
+                <div class="form-group">
+                    <label for="photoTitle">Título de la Foto:</label>
+                    <input type="text" id="photoTitle" name="photoTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="photoDescription">Descripción:</label>
+                    <textarea id="photoDescription" name="photoDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="photoPrice">Precio ($):</label>
+                    <input type="number" id="photoPrice" name="photoPrice" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="photoFile" class="file-upload-btn">Seleccionar Imagen</label>
+                    <input type="file" id="photoFile" name="photoFile" accept="image/*" required>
+                    <span id="fileName"></span>
+                </div>
+                <button type="submit" class="submit-btn">Publicar Foto</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Datos de ejemplo para las fotos recientes
+        const recentPhotos = [
+            { id: 1, title: "Atardecer en la playa", author: "María López", price: 25.99 },
+            { id: 2, title: "Montañas nevadas", author: "Juan Pérez", price: 19.99 },
+            { id: 3, title: "Calles de París", author: "Ana García", price: 29.99 },
+            { id: 4, title: "Retrato en blanco y negro", author: "Carlos Ruiz", price: 15.99 },
+            { id: 5, title: "Fauna salvaje", author: "Laura Martínez", price: 34.99 },
+            { id: 6, title: "Arquitectura moderna", author: "Pedro Sánchez", price: 22.99 }
+        ];
+
+        function createRecentPhotoCards() {
+            const gallery = document.getElementById('recentPhotos');
+            recentPhotos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.classList.add('photo-card');
+                photoCard.innerHTML = `
+                    <img src="https://picsum.photos/id/${photo.id + 100}/400/300" alt="${photo.title}">
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                    </div>
+                    <div class="photo-price">$${photo.price.toFixed(2)}</div>
+                `;
+                gallery.appendChild(photoCard);
+            });
+        }
+
+        // Inicializar la galería de fotos recientes
+        createRecentPhotoCards();
+
+        // Funciones para el modal de publicación
+        function openPublishModal() {
+            document.getElementById('publishModal').style.display = 'block';
+        }
+
+        function closePublishModal() {
+            document.getElementById('publishModal').style.display = 'none';
+        }
+
+        // Mostrar el nombre del archivo seleccionado
+        document.getElementById('photoFile').addEventListener('change', function(e) {
+            var fileName = e.target.files[0].name;
+            document.getElementById('fileName').textContent = fileName;
+        });
+
+        // Manejar el envío del formulario
+        document.getElementById('publishForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para enviar los datos al servidor
+            alert('Foto publicada con éxito!');
+            closePublishModal();
+        });
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('publishModal')) {
+                closePublishModal();
+            }
+        }
+    </script>
+</body>
+</html>

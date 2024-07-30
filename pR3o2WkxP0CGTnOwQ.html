@@ -1,0 +1,276 @@
+<html><head><base href="https://fotospromax.com/buscar">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Búsqueda Avanzada</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    main {
+        flex: 1;
+        padding: 2em;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .search-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2em;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 2em;
+    }
+    h1 {
+        color: #1a237e;
+        margin-bottom: 1em;
+    }
+    .search-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    .search-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.8em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+    }
+    .search-btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    .search-btn:hover {
+        background-color: #45a049;
+    }
+    .advanced-options {
+        width: 100%;
+        margin-top: 1em;
+    }
+    .advanced-options details {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 1em;
+    }
+    .advanced-options summary {
+        cursor: pointer;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin-top: 1em;
+    }
+    .filter-item {
+        display: flex;
+        align-items: center;
+    }
+    .filter-item label {
+        margin-left: 0.5em;
+    }
+    .results-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1em;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 1em;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    .photo-tags {
+        font-size: 0.9em;
+        color: #666;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="search-container">
+                <h1>Búsqueda Avanzada</h1>
+                <form class="search-form" action="/buscar" method="GET">
+                    <input type="text" name="q" class="search-input" placeholder="Buscar fotos..." required>
+                    <button type="submit" class="search-btn">Buscar</button>
+                    <div class="advanced-options">
+                        <details>
+                            <summary>Opciones avanzadas</summary>
+                            <div class="filter-group">
+                                <div class="filter-item">
+                                    <input type="checkbox" id="filter-portrait" name="orientation" value="portrait">
+                                    <label for="filter-portrait">Retratos</label>
+                                </div>
+                                <div class="filter-item">
+                                    <input type="checkbox" id="filter-landscape" name="orientation" value="landscape">
+                                    <label for="filter-landscape">Paisajes</label>
+                                </div>
+                                <div class="filter-item">
+                                    <input type="checkbox" id="filter-bw" name="color" value="bw">
+                                    <label for="filter-bw">Blanco y Negro</label>
+                                </div>
+                                <div class="filter-item">
+                                    <input type="checkbox" id="filter-color" name="color" value="color">
+                                    <label for="filter-color">Color</label>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </form>
+            </section>
+            <section class="results-container">
+                <!-- Aquí se mostrarían los resultados de la búsqueda -->
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=1" alt="Foto de muestra 1">
+                    <div class="photo-info">
+                        <div class="photo-title">Atardecer en la playa</div>
+                        <div class="photo-tags">playa, atardecer, verano</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=2" alt="Foto de muestra 2">
+                    <div class="photo-info">
+                        <div class="photo-title">Montañas nevadas</div>
+                        <div class="photo-tags">montaña, nieve, invierno</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=3" alt="Foto de muestra 3">
+                    <div class="photo-info">
+                        <div class="photo-title">Ciudad nocturna</div>
+                        <div class="photo-tags">ciudad, noche, luces</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://picsum.photos/200/300?random=4" alt="Foto de muestra 4">
+                    <div class="photo-info">
+                        <div class="photo-title">Bosque otoñal</div>
+                        <div class="photo-tags">bosque, otoño, naturaleza</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.querySelector('.search-input').value;
+            alert(`Buscando: "${searchTerm}"\nLa funcionalidad de búsqueda está en desarrollo. ¡Pronto podrás encontrar tus fotos favoritas!`);
+        });
+
+        // Simular carga de más resultados al hacer scroll
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+                setTimeout(() => {
+                    const resultsContainer = document.querySelector('.results-container');
+                    for (let i = 0; i < 4; i++) {
+                        const newCard = document.createElement('div');
+                        newCard.className = 'photo-card';
+                        newCard.innerHTML = `
+                            <img src="https://picsum.photos/200/300?random=${Math.random()}" alt="Foto adicional">
+                            <div class="photo-info">
+                                <div class="photo-title">Nueva foto ${i + 1}</div>
+                                <div class="photo-tags">etiqueta1, etiqueta2, etiqueta3</div>
+                            </div>
+                        `;
+                        resultsContainer.appendChild(newCard);
+                    }
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

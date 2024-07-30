@@ -1,0 +1,203 @@
+<html><head><base href="/dashboard"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Panel de Control</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    nav {
+        background-color: #34495e;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-right: 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    main {
+        flex: 1;
+        display: flex;
+        padding: 2em;
+    }
+    .sidebar {
+        width: 200px;
+        background-color: #2c3e50;
+        color: white;
+        padding: 1em;
+        border-radius: 5px;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .sidebar ul li {
+        margin-bottom: 1em;
+    }
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    .content {
+        flex: 1;
+        margin-left: 2em;
+    }
+    .dashboard-card {
+        background-color: white;
+        border-radius: 5px;
+        padding: 1.5em;
+        margin-bottom: 1.5em;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    .stats {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .stat-card {
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        padding: 1em;
+        margin: 0.5em;
+        flex: 1;
+        min-width: 150px;
+        text-align: center;
+    }
+    .upload-btn {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+    .recent-photos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    .photo-thumbnail {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    footer {
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Fotos Pro Max</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/buscar">Buscar</a></li>
+                    <li><a href="/albums">Álbumes</a></li>
+                    <li><a href="/perfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#overview">Vista General</a></li>
+                    <li><a href="#upload">Subir Fotos</a></li>
+                    <li><a href="#albums">Mis Álbumes</a></li>
+                    <li><a href="#settings">Configuración</a></li>
+                </ul>
+            </aside>
+            <div class="content">
+                <section id="overview" class="dashboard-card">
+                    <h1>Bienvenido, Usuario</h1>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3>Fotos</h3>
+                            <p>127</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Álbumes</h3>
+                            <p>8</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Espacio Usado</h3>
+                            <p>2.7 GB / 5 GB</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="upload" class="dashboard-card">
+                    <h2>Subir Fotos</h2>
+                    <button class="upload-btn">Seleccionar Archivos</button>
+                </section>
+                <section id="recent" class="dashboard-card">
+                    <h2>Fotos Recientes</h2>
+                    <div class="recent-photos">
+                        <img src="https://picsum.photos/100/100?random=1" alt="Foto reciente 1" class="photo-thumbnail">
+                        <img src="https://picsum.photos/100/100?random=2" alt="Foto reciente 2" class="photo-thumbnail">
+                        <img src="https://picsum.photos/100/100?random=3" alt="Foto reciente 3" class="photo-thumbnail">
+                        <img src="https://picsum.photos/100/100?random=4" alt="Foto reciente 4" class="photo-thumbnail">
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('.upload-btn').addEventListener('click', function() {
+            alert('Funcionalidad de carga de fotos en desarrollo. ¡Próximamente!');
+        });
+
+        // Simulación de carga de datos
+        setTimeout(() => {
+            const statCards = document.querySelectorAll('.stat-card p');
+            statCards[0].textContent = Math.floor(Math.random() * 200) + 100;
+            statCards[1].textContent = Math.floor(Math.random() * 10) + 5;
+            const usedSpace = (Math.random() * 4 + 1).toFixed(1);
+            statCards[2].textContent = `${usedSpace} GB / 5 GB`;
+        }, 1000);
+    </script>
+</body>
+</html>

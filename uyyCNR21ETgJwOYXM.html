@@ -1,0 +1,244 @@
+<html><head><base href="https://fotospromax.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Inicio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0.5em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #3f51b5;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+        background-color: #1a237e;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .hero {
+        background-image: url('https://source.unsplash.com/random/1200x600?photography');
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+    }
+    .cta-button {
+        background-color: #ffab40;
+        color: #1a237e;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #ffd180;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 2em;
+    }
+    .feature {
+        flex-basis: calc(33.333% - 20px);
+        margin: 10px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 1.5em;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .feature i {
+        font-size: 3em;
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    .feature h2 {
+        color: #1a237e;
+        margin-bottom: 0.5em;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    }
+    @media (max-width: 768px) {
+        .feature {
+            flex-basis: calc(50% - 20px);
+        }
+    }
+    @media (max-width: 480px) {
+        .feature {
+            flex-basis: 100%;
+        }
+    }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-button">Inicio</a></li>
+                <li><a href="/galeria" class="nav-button">Galería</a></li>
+                <li><a href="/precios" class="nav-button">Precios</a></li>
+                <li><a href="/acerca" class="nav-button">Acerca de</a></li>
+                <li><a href="/contacto" class="nav-button">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Captura Momentos Inolvidables</h1>
+            <p>Descubre el arte de la fotografía con Fotos Pro Max</p>
+            <a href="/galeria" class="cta-button">Ver Galería</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-camera"></i>
+                <h2>Equipo Profesional</h2>
+                <p>Utilizamos cámaras y lentes de última generación para capturar cada detalle con precisión.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h2>Fotógrafos Expertos</h2>
+                <p>Nuestro equipo de fotógrafos cuenta con años de experiencia en diversos estilos y técnicas.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-edit"></i>
+                <h2>Edición Personalizada</h2>
+                <p>Ofrecemos servicios de post-producción para realzar la belleza de cada imagen.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animación de botones
+        const buttons = document.querySelectorAll('.nav-button, .cta-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animación de características
+        const features = document.querySelectorAll('.feature');
+        features.forEach(feature => {
+            feature.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            });
+            feature.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Cambio de imagen de fondo
+        const hero = document.querySelector('.hero');
+        const backgroundImages = [
+            'https://source.unsplash.com/random/1200x600?camera',
+            'https://source.unsplash.com/random/1200x600?photographer',
+            'https://source.unsplash.com/random/1200x600?landscape'
+        ];
+        let currentImageIndex = 0;
+
+        function changeBackgroundImage() {
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+            hero.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+        }
+
+        setInterval(changeBackgroundImage, 5000);
+    </script>
+</body>
+</html>

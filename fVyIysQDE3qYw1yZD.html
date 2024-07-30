@@ -1,0 +1,234 @@
+<html><head><base href="https://fotospromax.com/populares">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos Pro Max - Populares</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #1a237e;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    .logo {
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+        background-color: #283593;
+        padding: 0.5em;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 1em;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #ffab40;
+    }
+    .popular-photos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+    }
+    .photo-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .photo-card:hover {
+        transform: translateY(-5px);
+    }
+    .photo-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    .photo-info {
+        padding: 15px;
+    }
+    .photo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 1.2em;
+    }
+    .photo-author {
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    .photo-stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9em;
+        color: #555;
+    }
+    .stat {
+        display: flex;
+        align-items: center;
+    }
+    .stat i {
+        margin-right: 5px;
+    }
+    .trending {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ff4081;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    footer {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-top: 20px;
+    }
+    .time-filter {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .time-filter button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: #283593;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .time-filter button:hover,
+    .time-filter button.active {
+        background-color: #1a237e;
+    }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Fotos Pro Max</div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/populares">Populares</a></li>
+                <li><a href="/perfil">Mi Perfil</a></li>
+                <li><a href="/subir">Subir Foto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Fotos Populares</h1>
+        
+        <div class="time-filter">
+            <button class="active" data-time="day">Hoy</button>
+            <button data-time="week">Esta Semana</button>
+            <button data-time="month">Este Mes</button>
+            <button data-time="all">Todos los Tiempos</button>
+        </div>
+
+        <div class="popular-photos" id="popularPhotos">
+            <!-- Las fotos populares se generarán dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotos Pro Max. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Datos de ejemplo para las fotos populares
+        const popularPhotos = [
+            { id: 1, title: "Amanecer en el Gran Cañón", author: "Laura Martínez", likes: 15320, views: 89500, comments: 423, trending: true },
+            { id: 2, title: "Tigre en la selva", author: "Carlos Ruiz", likes: 12800, views: 76200, comments: 312 },
+            { id: 3, title: "Nueva York desde las alturas", author: "Ana García", likes: 11500, views: 68900, comments: 276 },
+            { id: 4, title: "Aurora boreal en Islandia", author: "Pedro Sánchez", likes: 10200, views: 61500, comments: 198, trending: true },
+            { id: 5, title: "Retrato de una anciana", author: "Isabel Gómez", likes: 9800, views: 58700, comments: 187 },
+            { id: 6, title: "Cascada en la selva tropical", author: "Miguel Ángel Pérez", likes: 9100, views: 54600, comments: 165 },
+            { id: 7, title: "Atardecer en Santorini", author: "Elena Rodríguez", likes: 8700, views: 52200, comments: 143 },
+            { id: 8, title: "Leopardo al acecho", author: "Javier Fernández", likes: 8200, views: 49300, comments: 131 }
+        ];
+
+        function createPhotoCards() {
+            const gallery = document.getElementById('popularPhotos');
+            gallery.innerHTML = ''; // Limpiar la galería
+
+            popularPhotos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.classList.add('photo-card');
+                photoCard.innerHTML = `
+                    <img src="https://picsum.photos/id/${photo.id + 200}/400/300" alt="${photo.title}">
+                    ${photo.trending ? '<span class="trending">Trending</span>' : ''}
+                    <div class="photo-info">
+                        <div class="photo-title">${photo.title}</div>
+                        <div class="photo-author">por ${photo.author}</div>
+                        <div class="photo-stats">
+                            <span class="stat"><i class="fas fa-heart"></i> ${photo.likes.toLocaleString()}</span>
+                            <span class="stat"><i class="fas fa-eye"></i> ${photo.views.toLocaleString()}</span>
+                            <span class="stat"><i class="fas fa-comment"></i> ${photo.comments.toLocaleString()}</span>
+                        </div>
+                    </div>
+                `;
+                gallery.appendChild(photoCard);
+            });
+        }
+
+        // Inicializar la galería
+        createPhotoCards();
+
+        // Funcionalidad de filtro de tiempo
+        const timeFilterButtons = document.querySelectorAll('.time-filter button');
+        timeFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                timeFilterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                // Aquí se implementaría la lógica para filtrar por tiempo
+                // Por ahora, solo simularemos un cambio
+                shufflePhotos();
+            });
+        });
+
+        function shufflePhotos() {
+            for (let i = popularPhotos.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [popularPhotos[i], popularPhotos[j]] = [popularPhotos[j], popularPhotos[i]];
+            }
+            createPhotoCards();
+        }
+    </script>
+</body>
+</html>
